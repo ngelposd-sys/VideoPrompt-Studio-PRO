@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b18">
+<title>VideoPrompt Studio PRO</title>
+<style>
+:root{--bg:#080a16;--panel:#101429;--panel2:#151a34;--line:#292f55;--text:#f3f4ff;--muted:#a4accd;--blue:#63d5ff;--purple:#a78bfa;--pink:#f0abfc;--green:#75f0c0;--danger:#ff829b;--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#29205a 0,transparent 38%),radial-gradient(ellipse at 100% 15%,#102b50 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+a{color:var(--blue)}.wrap{max-width:1240px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#6b5cff,#31c7f4);display:grid;place-items:center;box-shadow:0 8px 35px #675cff45;font-size:25px}.brand h1{font-size:20px;line-height:1.15;margin:0;letter-spacing:-.5px}.brand p{margin:5px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.eyebrow{color:var(--blue);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.7px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:20px;margin-bottom:20px}.hero-main,.hero-side,.panel,.scene-card{background:linear-gradient(145deg,#141832eF,#0f1225f2);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 14px 50px #0002}.hero-main{padding:28px;position:relative;overflow:hidden}.hero-main:after{content:"";position:absolute;width:220px;height:220px;right:-60px;bottom:-130px;border-radius:50%;background:#806cff25;filter:blur(5px)}h2{font-size:clamp(25px,4vw,39px);line-height:1.12;letter-spacing:-1px;margin:8px 0 12px}.gradient{background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{color:var(--muted);max-width:690px;margin:0}.hero-side{padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:15px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{padding:14px;border:1px solid var(--line);border-radius:13px;background:#090d1c70}.stat strong{display:block;font-size:23px}.stat span{font-size:12px;color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #355b69;background:#12313b80;color:#aaf0ff;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:700}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}.layout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:20px;align-items:start}.panel{padding:21px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.panel h3{font-size:16px;margin:0}.section-tag{color:var(--muted);font-size:11px}.field{margin:0 0 15px}.field label{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:700;margin-bottom:7px;color:#e5e8ff}.hint{color:var(--muted);font-weight:400;font-size:11px}.field input,.field textarea,.field select{width:100%;border:1px solid #30375d;background:#090d1c;color:var(--text);border-radius:11px;padding:11px 12px;outline:none}.field textarea{resize:vertical;min-height:93px}.field select{appearance:auto}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkrow{display:flex;gap:10px;align-items:flex-start;color:#dce0ff;font-size:12px;margin:15px 0}.checkrow input{accent-color:#8e7bff;margin-top:4px}.btn{border:1px solid #39416d;background:#1b2040;color:var(--text);border-radius:11px;padding:10px 13px;font-weight:700;font-size:12px;transition:.18s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{transform:translateY(-1px);border-color:#7b83c9;background:#242a51}.btn.primary{background:linear-gradient(105deg,#6658f5,#318fd5);border:0;box-shadow:0 8px 24px #635bfa30}.btn.primary:hover{filter:brightness(1.1)}.btn.subtle{background:transparent}.btn.danger{color:#ffb0bd}.btn.full{width:100%;padding:13px}.btn.small{padding:7px 9px;font-size:11px}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.rightcol{min-width:0}.projectbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}.projectbar h3{margin:0;font-size:18px}.progress-wrap{margin:0 0 18px}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:7px}.progress{height:5px;background:#252a49;border-radius:9px;overflow:hidden}.progress>span{height:100%;width:100%;display:block;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));border-radius:9px}.scene-list{display:grid;gap:13px}.scene-card{overflow:hidden}.scene-top{display:flex;align-items:center;gap:12px;padding:15px 17px;border-bottom:1px solid #252a49;background:#171b36}.scene-num{width:37px;height:37px;flex:0 0 auto;border-radius:12px;background:linear-gradient(135deg,#5145c9,#247eae);display:grid;place-items:center;font-weight:900}.scene-heading{min-width:0;flex:1}.scene-heading h4{margin:0;font-size:14px}.scene-heading p{margin:3px 0 0;color:var(--muted);font-size:11px}.scene-badge{font-size:10px;color:#b9f5df;background:#163a37;border:1px solid #28645a;padding:4px 8px;border-radius:99px;white-space:nowrap}.scene-body{padding:17px}.scene-desc{margin:0 0 13px;color:#dce0ff;font-size:13px}.scene-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}.chip{font-size:10px;color:#c9d1f6;background:#1a2040;border:1px solid #30375d;padding:4px 8px;border-radius:99px}.prompt-label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:13px 0 7px;font-size:11px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}.prompt{white-space:pre-wrap;overflow-wrap:anywhere;background:#090d1b;border:1px solid #292f53;border-radius:12px;padding:13px;color:#d8ddfb;font-size:12px;max-height:290px;overflow:auto}.scene-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}.details{margin-top:16px;border-top:1px solid #292f53;padding-top:13px}.details summary{cursor:pointer;color:#c7cfff;font-size:12px;font-weight:700}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.detail-box{border:1px solid #292f53;background:#0b1021;border-radius:11px;padding:12px}.detail-box strong{display:block;font-size:10px;color:var(--purple);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.detail-box p{font-size:12px;color:#cfd5f6;margin:0}.empty{border:1px dashed #3b426a;border-radius:14px;padding:30px;text-align:center;color:var(--muted)}.footer{margin:24px 0 8px;text-align:center;color:#7f88b1;font-size:11px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:10;padding:11px 16px;border-radius:12px;background:#1b2742;border:1px solid #4c6991;box-shadow:0 10px 40px #0008;color:#fff;font-size:13px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#03040bd9;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal-backdrop.show{display:flex}.modal{max-width:560px;width:100%;background:#11162c;border:1px solid #39416d;border-radius:18px;padding:22px;max-height:85vh;overflow:auto}.modal h3{margin:0 0 8px}.modal p{color:var(--muted);font-size:13px}.saved-list{display:grid;gap:8px;margin-top:15px}.saved-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px;border:1px solid var(--line);border-radius:10px}.saved-item span{font-size:12px;overflow-wrap:anywhere}.hidden{display:none!important}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.hero-side{display:grid;grid-template-columns:1fr 1fr;align-items:center}.stat-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.wrap{padding:14px}.top{align-items:flex-start}.brand h1{font-size:17px}.top-actions .btn{padding:8px;font-size:11px}.hero-main{padding:21px}.hero-side{grid-template-columns:1fr}.panel{padding:15px}.scene-top{padding:12px}.scene-body{padding:13px}.scene-badge{display:none}.detail-grid{grid-template-columns:1fr}.two{grid-template-columns:1fr 1fr}}
+
+.character-panel{margin-bottom:18px}.character-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.8fr);gap:16px}.character-form{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.character-form .wide{grid-column:1/-1}.character-list{display:grid;gap:9px;align-content:start}.character-item{display:flex;gap:10px;border:1px solid var(--line);background:#0b1021;border-radius:12px;padding:11px}.character-info{min-width:0;flex:1}.character-info strong{display:block;font-size:12px}.character-info p{margin:3px 0;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.feature-check{display:flex;gap:8px;align-items:flex-start;padding:9px;border:1px solid #292f53;background:#0b1021;border-radius:10px;font-size:11px;color:#dce0ff}.feature-check input{accent-color:#8e7bff;margin-top:3px}.scene-character-select{width:100%;background:#090d1c;color:var(--text);border:1px solid #30375d;border-radius:9px;padding:8px}.mini-note{font-size:11px;color:var(--muted);margin:6px 0 12px}.section-divider{border:0;border-top:1px solid var(--line);margin:16px 0}@media(max-width:850px){.character-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.character-form{grid-template-columns:1fr}.character-form .wide{grid-column:auto}.feature-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo" aria-hidden="true">▶</div><div><h1>VideoPrompt <span class="gradient">Studio PRO</span></h1><p>STORY ENGINE · CONTINUIDAD CINEMATOGRÁFICA</p></div></div>
+  <div class="top-actions"><button class="btn" id="savedBtn">▤ Proyectos guardados</button><button class="btn" id="exportAllBtn">↓ Exportar historia</button></div>
+</header>
+<section class="hero">
+  <div class="hero-main"><div class="eyebrow">✦ Tu idea, plano a plano</div><h2>Una historia. <span class="gradient">Cada clip conectado.</span></h2><p class="lead">Crea guiones y prompts para vídeos de 8 segundos, manteniendo personajes, vestuario, escenarios y acción entre clips. Diseñado para preparar prompts listos para tu herramienta de vídeo.</p></div>
+  <div class="hero-side"><div><span class="pill"><span class="dot"></span> MOTOR DE HISTORIAS</span><h3 style="margin:13px 0 5px">Tu proyecto actual</h3><div class="section-tag">Anime · Marte · Continuidad activada</div></div><div class="stat-grid"><div class="stat"><strong id="statClips">05</strong><span>clips generados</span></div><div class="stat"><strong id="statDuration">00:40</strong><span>duración total</span></div></div></div>
+</section>
+<main class="layout">
+  <aside class="panel">
+    <div class="panel-head"><h3>Configurar historia</h3><span class="section-tag">01 / SETUP</span></div>
+    <div class="field"><label for="idea">Idea o premisa <span class="hint">Obligatorio</span></label><textarea id="idea" placeholder="Ej. Un astronauta descubre una civilización oculta en Marte">Un astronauta descubre una civilización oculta en Marte</textarea></div>
+    <div class="field"><label for="projectName">Nombre del proyecto</label><input id="projectName" value="La civilización oculta de Marte" maxlength="100"></div>
+    <div class="two">
+      <div class="field"><label for="count">Número de clips</label><select id="count"><option value="1">1 clip · 8 s</option><option value="3">3 clips · 24 s</option><option value="5" selected>5 clips · 40 s</option><option value="10">10 clips · 80 s</option><option value="15">15 clips · 120 s</option><option value="20">20 clips · 160 s</option></select></div>
+      <div class="field"><label for="style">Estilo visual</label><select id="style"><option>Anime</option><option>Cine realista</option><option>Cyberpunk</option><option>Studio Ghibli inspirado</option><option>3D cinematográfico</option><option>Documental</option><option>Fantasía épica</option><option>Terror cinematográfico</option><option>Publicidad premium</option><option>Stop motion</option></select></div>
+    </div>
+    <div class="two">
+      <div class="field"><label for="format">Formato</label><select id="format"><option value="vertical 9:16">Vertical 9:16</option><option value="horizontal 16:9">Horizontal 16:9</option><option value="cuadrado 1:1">Cuadrado 1:1</option></select></div>
+      <div class="field"><label for="sound">Diálogo y sonido</label><select id="sound"><option>Diálogos cinematográficos</option><option>Narrador profesional</option><option>Diálogos y narración</option><option>Sin diálogos</option></select></div>
+    </div>
+    <div class="field"><label for="continuity">Entrada del siguiente clip</label><select id="continuity"><option value="directa">Continuación directa</option><option value="transicion">Transición cinematográfica</option><option value="mismo-plano">Nuevo plano, misma escena</option></select></div>
+    <div class="field"><label for="character">Personaje principal</label><input id="character" value="Una astronauta exploradora de unos 30 años, traje espacial blanco con detalles azul turquesa, visor transparente y emblema circular en el hombro" maxlength="500"></div>
+    <div class="field"><label for="world">Mundo y ambientación</label><input id="world" value="Marte rojizo, montañas lejanas, ruinas alienígenas antiguas y arquitectura luminosa azul" maxlength="500"></div>
+    <div class="field"><label for="voice">Voz del personaje</label><input id="voice" value="Voz femenina serena, curiosa y ligeramente asombrada; español neutro" maxlength="250"></div>
+    <label class="checkrow"><input type="checkbox" id="keepContinuity" checked><span><strong>Continuidad estricta</strong><br><span class="hint">Repetir las descripciones clave de personaje, ropa, estilo, escenario y posición en cada prompt.</span></span></label>
+    <label class="checkrow"><input type="checkbox" id="negative" checked><span><strong>Incluir prompt negativo</strong><br><span class="hint">Reducir cambios de identidad, vestuario, proporciones y detalles inconsistentes.</span></span></label>
+    <button class="btn primary full" id="generateBtn">✦ Generar historia completa</button>
+    <div class="toolbar" style="margin-top:9px"><button class="btn subtle" style="flex:1" id="resetBtn">Restablecer ejemplo</button><button class="btn subtle" style="flex:1" id="saveBtn">Guardar proyecto</button></div>
+    <p class="hint" style="margin:13px 0 0">La generación funciona localmente mediante plantillas; no usa IA externa ni requiere una API. Puedes editar cada escena después de crearla.</p>
+  </aside>
+  <section class="rightcol">
+    <section class="panel character-panel">
+      <div class="panel-head"><div><h3>🎭 Personajes Pro</h3><div class="section-tag">Biblioteca de personajes · continuidad visual</div></div><span class="pill">MEMORIA VISUAL</span></div>
+      <p class="mini-note">Crea fichas reutilizables, guarda sus rasgos y asigna quién aparece en cada clip. Las descripciones se incorporan a los prompts. La consistencia final también depende del generador de vídeo utilizado.</p>
+      <div class="character-grid"><div>
+        <div class="character-form">
+          <div class="field"><label for="charName">Nombre</label><input id="charName" maxlength="80" placeholder="Ej. Aina, capitana"></div>
+          <div class="field"><label for="charRole">Rol</label><input id="charRole" maxlength="100" placeholder="Protagonista, aliada..."></div>
+          <div class="field"><label for="charAge">Edad aparente</label><input id="charAge" maxlength="60" placeholder="Unos 30 años"></div>
+          <div class="field"><label for="charBuild">Altura y complexión</label><input id="charBuild" maxlength="160" placeholder="Alta, atlética..."></div>
+          <div class="field wide"><label for="charFace">Rostro y rasgos distintivos</label><textarea id="charFace" placeholder="Forma del rostro, ojos, cicatrices..."></textarea></div>
+          <div class="field"><label for="charHair">Peinado y color</label><input id="charHair" maxlength="160" placeholder="Pelo negro corto"></div>
+          <div class="field"><label for="charEyes">Color de ojos</label><input id="charEyes" maxlength="80" placeholder="Marrón oscuro"></div>
+          <div class="field wide"><label for="charClothes">Vestuario y accesorios fijos</label><textarea id="charClothes" placeholder="Ropa, calzado, emblemas, objetos..."></textarea></div>
+          <div class="field wide"><label for="charPersonality">Personalidad, voz y comportamiento</label><textarea id="charPersonality" placeholder="Carácter, acento, timbre, gestos..."></textarea></div>
+          <div class="field wide"><label for="charNotes">Detalles que nunca deben cambiar</label><textarea id="charNotes" placeholder="Marcas, objetos, reglas de continuidad..."></textarea></div>
+        </div>
+        <div class="toolbar"><button class="btn primary" id="addCharacterBtn">＋ Guardar personaje</button><button class="btn" id="clearCharacterFormBtn">Limpiar</button><button class="btn" id="exportCharactersBtn">↓ Exportar fichas</button><label class="btn" for="importCharactersFile">↑ Importar JSON</label><input id="importCharactersFile" type="file" accept=".json,application/json" class="hidden"></div>
+        <p class="mini-note">Los datos se guardan en este navegador. Exporta las fichas para transferirlas a otro dispositivo.</p>
+      </div><div><div class="panel-head"><h3>Personajes guardados</h3><span class="section-tag" id="characterCount">0</span></div><div id="characterList" class="character-list"></div></div></div>
+      <hr class="section-divider"><div class="panel-head"><h3>Asignación por clip</h3><span class="section-tag">Selecciona quién aparece</span></div><div id="characterAssignments" class="character-list"></div>
+    </section>
+    <section class="panel character-panel">
+      <div class="panel-head"><div><h3>⚙️ 60 funciones cinematográficas</h3><div class="section-tag">Cada opción activada se añade a los prompts</div></div><span class="pill">60 CONTROLES</span></div>
+      <div class="toolbar" style="margin-bottom:12px"><button class="btn small" id="selectAllFeaturesBtn">Activar todas</button><button class="btn small" id="clearFeaturesBtn">Desactivar todas</button><span class="section-tag" id="featureCount">0 activadas</span></div><div id="featureGrid" class="feature-grid"></div>
+    </section>
+    <div class="projectbar"><div><div class="eyebrow">02 / STORYBOARD</div><h3 id="storyTitle">La civilización oculta de Marte</h3></div><div class="toolbar"><button class="btn small" id="copyAllBtn">▣ Copiar todos</button><button class="btn small" id="txtBtn">↓ TXT</button><button class="btn small" id="jsonBtn">↓ JSON</button></div></div>
+    <div class="progress-wrap"><div class="progress-label"><span id="progressText">5 clips · 40 segundos · Vertical 9:16</span><span id="continuityLabel">CONTINUIDAD ON</span></div><div class="progress"><span id="progressBar"></span></div></div>
+    <div id="sceneList" class="scene-list" aria-live="polite"></div>
+    <div class="footer">VIDEOPROMPT STUDIO PRO · Guiones preparados para herramientas externas de generación de vídeo.</div>
+  </section>
+</main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="savedModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="savedTitle"><div class="modal"><div class="panel-head"><h3 id="savedTitle">Proyectos guardados</h3><button class="btn small" id="closeSaved">✕ Cerrar</button></div><p>Los proyectos se guardan en el almacenamiento local de este navegador. No se sincronizan entre dispositivos.</p><div id="savedList" class="saved-list"></div></div></div>
+<script>
+(() => {
+"use strict";
+const $ = id => document.getElementById(id);
+const STORAGE_KEY = "videoprompt-studio-pro-v1";
+let scenes = [];
+
+let characters = [];
+let editingCharacterId = null;
+let activeFeatures = [];
+const CHAR_KEY = "videoprompt-studio-characters-v1";
+const FEATURE_KEY = "videoprompt-studio-features-v1";
+const featureNames = ["Movimiento de cámara suave", "Plano secuencia", "Primer plano emocional", "Plano general de contexto", "Ángulo contrapicado", "Ángulo cenital", "Seguimiento del protagonista", "Profundidad de campo", "Cambio de foco cinematográfico", "Composición cinematográfica", "Luz de amanecer", "Luz de atardecer", "Contraluz dramático", "Iluminación volumétrica", "Paleta de color fija", "Contraste alto", "Neón ambiental", "Sombras realistas", "Grano cinematográfico", "Exposición estable", "Clima persistente", "Viento visible", "Lluvia o partículas", "Niebla ambiental", "Objetos persistentes", "Geografía coherente", "Época temporal fija", "Fondo con profundidad", "Elementos de escala", "Detalles del escenario estables", "Expresiones faciales claras", "Lenguaje corporal natural", "Gestos de manos controlados", "Mirada con objetivo", "Emoción dominante", "Reacciones entre personajes", "Distancia interpersonal", "Posición en pantalla fija", "Dirección de movimiento fija", "Coreografía de acción legible", "Voz consistente", "Sincronización labial", "Ambiente continuo", "Efectos sonoros puntuales", "Música con intensidad gradual", "Pausas naturales", "Diálogo breve", "Silencios dramáticos", "Sin música de fondo", "Mezcla de audio equilibrada", "Anatomía consistente", "Manos bien definidas", "Sin duplicados", "Sin cambios de vestuario", "Sin objetos que desaparecen", "Transición de estado exacta", "Ritmo narrativo progresivo", "Acción legible", "Final preparado para el siguiente clip", "Sin texto incrustado ni marcas de agua"];
+
+let toastTimer;
+const defaultValues = {
+ idea:"Un astronauta descubre una civilización oculta en Marte",
+ projectName:"La civilización oculta de Marte",
+ count:"5", style:"Anime", format:"vertical 9:16", sound:"Diálogos cinematográficos",
+ continuity:"directa",
+ character:"Una astronauta exploradora de unos 30 años, traje espacial blanco con detalles azul turquesa, visor transparente y emblema circular en el hombro",
+ world:"Marte rojizo, montañas lejanas, ruinas alienígenas antiguas y arquitectura luminosa azul",
+ voice:"Voz femenina serena, curiosa y ligeramente asombrada; español neutro",
+ keepContinuity:true, negative:true
+};
+const beats = [
+ {title:"Una señal bajo la arena", action:"La astronauta avanza lentamente por una llanura marciana. Su dispositivo detecta una señal; una vibración levanta el polvo y revela el borde de una estructura enterrada.", dialogue:"«Eso no aparece en ningún mapa…»", camera:"Plano general vertical que desciende suavemente hasta un plano medio; travelling lento hacia el dispositivo y la zona que emerge.", end:"Termina con la astronauta arrodillada frente al borde metálico descubierto, la mano suspendida a pocos centímetros de la superficie."},
+ {title:"La puerta despierta", action:"Desde la misma posición, la astronauta limpia el polvo del borde. Líneas azules se encienden bajo su mano y recorren una enorme puerta circular oculta en la roca.", dialogue:"«¿Quién construyó esto?»", camera:"Primer plano de la mano y las luces; inclinación ascendente que revela la escala de la puerta sin cambiar la orientación del lugar.", end:"Termina con la puerta iluminada por completo y una fina línea de luz abriéndose en el centro."},
+ {title:"El primer contacto", action:"La abertura se ensancha. Al otro lado aparece una ciudad subterránea de torres cristalinas. Una pequeña esfera luminosa flota hacia la astronauta y se detiene frente a su visor.", dialogue:"«Tranquila… no voy a hacerte daño.»", camera:"Cámara sobre el hombro de la astronauta, avance lento hacia el portal y enfoque final en el reflejo de la ciudad sobre el visor.", end:"Termina con la esfera suspendida frente al visor y la astronauta levantando lentamente una mano para tocarla."},
+ {title:"Un mensaje antiguo", action:"La astronauta toca la esfera. Proyecciones holográficas se despliegan alrededor de ambos: mapas de Marte, figuras alienígenas y símbolos que reaccionan a su presencia.", dialogue:"«Está intentando comunicarse conmigo.»", camera:"Órbita lenta de media vuelta alrededor de la astronauta; hologramas en primer término y ciudad iluminada al fondo.", end:"Termina cuando un holograma muestra una ruta brillante que desciende hacia el corazón de la ciudad."},
+ {title:"La ciudad oculta", action:"Siguiendo la ruta holográfica, la astronauta da un paso hacia la entrada. La cámara revela avenidas inmensas y miles de luces que despiertan en cadena, como si la ciudad llevara siglos esperando.", dialogue:"«No estamos solos en Marte… nunca lo estuvimos.»", camera:"Comienza desde la misma posición y movimiento de avance; se eleva detrás de la astronauta para descubrir la ciudad completa en una composición vertical épica.", end:"Termina con la astronauta en silueta frente a la ciudad resplandeciente y una nueva señal parpadeando en lo más profundo."}
+];
+
+function persistCharacters(){try{localStorage.setItem(CHAR_KEY,JSON.stringify(characters));}catch(e){showToast("No se pudieron guardar las fichas en este navegador.");}}
+function persistFeatures(){try{localStorage.setItem(FEATURE_KEY,JSON.stringify(activeFeatures));}catch(e){}}
+function loadCharacters(){try{const v=JSON.parse(localStorage.getItem(CHAR_KEY)||"[]");if(Array.isArray(v))characters=v;}catch(e){characters=[];}
+ if(!characters.length){characters=[{id:"char-main",name:"Astronauta exploradora",role:"Protagonista",age:"unos 30 años",build:"complexión atlética, altura media",face:"rostro visible y amable, rasgos definidos",hair:"pelo recogido bajo el equipo",eyes:"marrones",clothes:defaultValues.character,personality:"serena, curiosa y ligeramente asombrada",notes:"Traje blanco con detalles azul turquesa, visor transparente y emblema circular en el hombro."}];persistCharacters();}}
+function characterDescription(ch){return `${ch.name} (${ch.role||"personaje"}). Edad aparente: ${ch.age||"no especificada"}. Altura y complexión: ${ch.build||"mantener diseño establecido"}. Rostro y rasgos: ${ch.face||"conservar rostro de referencia"}. Pelo: ${ch.hair||"sin especificar"}. Ojos: ${ch.eyes||"sin especificar"}. Vestuario y accesorios fijos: ${ch.clothes||"conservar vestuario establecido"}. Personalidad, voz y comportamiento: ${ch.personality||"coherentes con la escena"}. Detalles invariables: ${ch.notes||"mantener identidad y continuidad"}.`;}
+function renderCharacters(){
+ $("characterCount").textContent=`${characters.length} personaje${characters.length===1?"":"s"}`;
+ $("characterList").innerHTML=characters.length?characters.map(ch=>`<div class="character-item"><div class="character-avatar">👤</div><div class="character-info"><strong>${escapeHtml(ch.name)}</strong><p>${escapeHtml(ch.role||"Sin rol definido")}</p><p>${escapeHtml((ch.clothes||ch.face||"Sin descripción").slice(0,140))}</p><div class="toolbar"><button class="btn small" data-char-action="edit" data-char-id="${escapeHtml(ch.id)}">Editar</button><button class="btn small danger" data-char-action="delete" data-char-id="${escapeHtml(ch.id)}">Borrar</button></div></div></div>`).join(""):'<div class="empty">Todavía no hay personajes.</div>';
+ renderAssignments();
+}
+function renderAssignments(){const box=$("characterAssignments");if(!box)return;if(!scenes.length){box.innerHTML='<div class="empty">Genera una historia para asignar personajes a cada clip.</div>';return;}
+ box.innerHTML=scenes.map(sc=>`<div class="character-item"><div class="character-info"><strong>Clip ${sc.number}: ${escapeHtml(sc.title)}</strong><div class="toolbar" style="margin-top:8px">${characters.map(ch=>`<label class="feature-check"><input type="checkbox" data-clip-character="${sc.id}" value="${escapeHtml(ch.id)}" ${(sc.characterIds||[]).includes(ch.id)?"checked":""}>${escapeHtml(ch.name)}</label>`).join("")||"Crea personajes para poder asignarlos."}</div></div></div>`).join("");}
+function clearCharacterForm(){editingCharacterId=null;["charName","charRole","charAge","charBuild","charFace","charHair","charEyes","charClothes","charPersonality","charNotes"].forEach(id=>$(id).value="");$("addCharacterBtn").textContent="＋ Guardar personaje";}
+function readCharacterForm(){return{id:editingCharacterId||("char-"+Date.now()+"-"+Math.random().toString(36).slice(2,7)),name:$("charName").value.trim(),role:$("charRole").value.trim(),age:$("charAge").value.trim(),build:$("charBuild").value.trim(),face:$("charFace").value.trim(),hair:$("charHair").value.trim(),eyes:$("charEyes").value.trim(),clothes:$("charClothes").value.trim(),personality:$("charPersonality").value.trim(),notes:$("charNotes").value.trim()};}
+function saveCharacterFromForm(){const ch=readCharacterForm();if(!ch.name){showToast("Escribe un nombre para el personaje.");$("charName").focus();return;}const i=characters.findIndex(c=>c.id===ch.id);if(i>=0)characters[i]=ch;else characters.push(ch);persistCharacters();clearCharacterForm();renderCharacters();showToast("Personaje guardado. Regenera la historia para actualizar los prompts.");}
+function updateSceneCharacters(sc){const chars=(sc.characterIds||[]).map(id=>characters.find(c=>c.id===id)).filter(Boolean);const section="PERSONAJES ASIGNADOS A ESTE CLIP:\\n"+(chars.length?chars.map(c=>"- "+characterDescription(c)).join("\\n"):"- Ningún personaje de la biblioteca seleccionado.");
+ const marker="PERSONAJES ASIGNADOS A ESTE CLIP:";
+ if(sc.prompt.includes(marker))sc.prompt=sc.prompt.replace(/PERSONAJES ASIGNADOS A ESTE CLIP:[\\s\\S]*?(?=\\n\\nCONTINUIDAD:|\\n\\nCONTROLES CINEMATOGRÁFICOS ACTIVADOS:|$)/,section);
+ else sc.prompt=sc.prompt.replace("\\n\\nCONTINUIDAD:", "\\n\\n"+section+"\\n\\nCONTINUIDAD:");
+}
+function renderFeatures(){ $("featureGrid").innerHTML=featureNames.map((n,i)=>`<label class="feature-check"><input type="checkbox" data-feature-index="${i}" ${activeFeatures.includes(i)?"checked":""}><span><b>${String(i+1).padStart(2,"0")}.</b> ${escapeHtml(n)}</span></label>`).join("");$("featureCount").textContent=`${activeFeatures.length} de 60 activadas`;}
+function addFeatureText(prompt){if(!activeFeatures.length)return prompt;return prompt+"\\n\\nCONTROLES CINEMATOGRÁFICOS ACTIVADOS:\\n"+activeFeatures.map(i=>"- "+featureNames[i]+": aplicar de forma consistente sin contradecir la acción ni la continuidad.").join("\\n");}
+
+function getSettings() {
+ return {
+  idea:$("idea").value.trim(), projectName:$("projectName").value.trim() || "Mi historia",
+  count:Number($("count").value), style:$("style").value, format:$("format").value,
+  sound:$("sound").value, continuity:$("continuity").value,
+  character:$("character").value.trim(), world:$("world").value.trim(), voice:$("voice").value.trim(),
+  keepContinuity:$("keepContinuity").checked, negative:$("negative").checked
+ };
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function makeScene(i, s, prior) {
+ const beat = beats[i % beats.length];
+ const start = i*8, end = start+8;
+ const continuity = s.continuity === "directa" ? "CONTINUIDAD DIRECTA: empieza exactamente desde la pose, ubicación, orientación de cámara, iluminación y movimiento final del clip anterior; no reinicies la escena ni teletransportes al personaje." :
+ s.continuity === "transicion" ? "TRANSICIÓN CINEMATOGRÁFICA: enlaza visualmente con el clip anterior mediante una transición fluida, conservando identidad, lugar, vestuario, iluminación y dirección del movimiento." :
+ "MISMA ESCENA, NUEVO PLANO: cambia el encuadre de forma intencional, pero conserva el mismo instante narrativo, posición de personajes, geografía, iluminación y eje de acción.";
+ const action = i === 0 ? beat.action : beat.action;
+ const dialogue = s.sound === "Sin diálogos" ? "Sin diálogo hablado. Comunicar la emoción mediante respiración, ambiente marciano y efectos sonoros sutiles." :
+ s.sound === "Narrador profesional" ? "Narrador en off, voz consistente: «" + (i===0?"En Marte, bajo el silencio rojo, algo llevaba siglos esperando.":i===1?"La puerta no estaba abandonada: estaba dormida.":i===2?"Al otro lado existía un mundo que nadie había imaginado.":i===3?"La esfera guardaba un mensaje anterior a la humanidad.":"Y por primera vez, la ciudad volvió a despertar.") + "»" :
+ s.sound === "Diálogos y narración" ? "Diálogo del personaje: " + beat.dialogue + " Narración breve en off, tono épico y contenida, sin tapar el diálogo." : beat.dialogue;
+ const fixed = s.keepContinuity ? `IDENTIDAD FIJA DEL PERSONAJE: ${s.character}.\nMUNDO FIJO: ${s.world}.\nESTILO FIJO: ${s.style}, diseño coherente de personajes y fondos, paleta y acabado visual consistentes.\nVOZ FIJA: ${s.voice}. Mantener el mismo timbre, acento, edad percibida y tratamiento sonoro en todos los clips.` :
+ `Personaje: ${s.character || "protagonista definido por la historia"}.\nAmbientación: ${s.world || "escenario coherente con la historia"}.\nEstilo visual: ${s.style}.`;
+ const prev = i===0 ? "INICIO DE HISTORIA: presentar el entorno y al personaje con claridad; no asumir acciones anteriores." :
+ `ESTADO HEREDADO DEL CLIP ${i}: ${prior || beats[(i-1)%beats.length].end} No alterar el estado físico de los personajes ni los objetos establecidos.`;
+ const negative = s.negative ? "\nPROMPT NEGATIVO: cambio de rostro o identidad, cambio de vestuario, casco distinto, duplicación de personajes, extremidades deformes, manos extra, objetos que desaparecen, arquitectura cambiante, saltos de posición, cámara temblorosa involuntaria, texto ilegible, subtítulos automáticos, marcas de agua, cortes bruscos, inconsistencias de estilo." : "";
+ const prompt = `Genera un vídeo animado de exactamente 8 segundos, formato ${s.format}, estilo ${s.style}. Calidad cinematográfica, composición clara, movimiento fluido y detalle visual alto.\n\nHISTORIA: ${s.idea}\nCLIP ${i+1} DE ${s.count} · TIEMPO GLOBAL ${start}–${end} s\n\n${fixed}\n\nCONTINUIDAD: ${continuity}\n${prev}\n\nACCIÓN EN PANTALLA: ${action}\n\nCÁMARA Y COMPOSICIÓN: ${beat.camera} Mantener el eje espacial, la escala relativa y la dirección de movimiento. Composición diseñada para ${s.format}.\n\nDIÁLOGO Y SONIDO: ${dialogue} Sincronizar labios si hay diálogo. Mantener ambiente, reverberación y mezcla coherentes. No acelerar la voz para forzar frases largas; la frase debe caber naturalmente en 8 segundos.\n\nESTADO FINAL EXACTO: ${beat.end} Este final debe servir como punto de partida visual del siguiente clip.\n\nRESTRICCIONES: un único plano continuo salvo que se solicite expresamente una transición; sin montaje de múltiples escenas dentro de estos 8 segundos. No añadir personajes o acontecimientos que contradigan la historia.${negative}`;
+ return {
+  id:"clip-"+(i+1), number:i+1, title:beat.title, start, end, duration:8,
+  action, dialogue, camera:beat.camera, endState:beat.end,
+  previousState:i===0?"Inicio de la historia":prior || beats[(i-1)%beats.length].end,
+  prompt, negative:s.negative, character:s.character, world:s.world, style:s.style, format:s.format, characterIds: characters.length ? [characters[0].id] : []
+ };
+}
+function buildScenes(s) {
+ const out=[];
+ for(let i=0;i<s.count;i++) {const sc=makeScene(i,s,i===0?"":out[i-1].endState);sc.prompt=addFeatureText(sc.prompt);updateSceneCharacters(sc);out.push(sc);}
+ return out;
+}
+function render() {
+ const s=getSettings();
+ $("storyTitle").textContent=s.projectName;
+ $("statClips").textContent=String(scenes.length).padStart(2,"0");
+ const total=scenes.length*8;
+ $("statDuration").textContent="00:"+String(total).padStart(2,"0");
+ $("progressText").textContent=`${scenes.length} clips · ${total} segundos · ${s.format}`;
+ $("continuityLabel").textContent=s.keepContinuity?"CONTINUIDAD ON":"CONTINUIDAD PARCIAL";
+ $("progressBar").style.width="100%";
+ $("sceneList").innerHTML=scenes.map(sc=>`
+ <article class="scene-card" data-id="${sc.id}">
+  <div class="scene-top"><div class="scene-num">${String(sc.number).padStart(2,"0")}</div><div class="scene-heading"><h4>${escapeHtml(sc.title)}</h4><p>Clip ${sc.number} · ${sc.start}–${sc.end} segundos · duración 8 s</p></div><span class="scene-badge">${sc.number===1?"INICIO":"CONTINÚA"}</span></div>
+  <div class="scene-body">
+   <p class="scene-desc">${escapeHtml(sc.action)}</p>
+   <div class="scene-meta"><span class="chip">${escapeHtml(sc.style)}</span><span class="chip">${escapeHtml(sc.format)}</span><span class="chip">8 segundos</span><span class="chip">${sc.number===1?"Escena inicial":"Acción encadenada"}</span></div>
+   <label class="field" style="display:block;margin:0 0 8px"><span style="display:block;font-size:11px;font-weight:700;margin-bottom:6px">Personajes presentes en este clip</span><select class="scene-character-select" multiple size="3" data-assign-clip="${sc.id}" aria-label="Personajes asignados al clip ${sc.number}">${characters.map(ch=>`<option value="${escapeHtml(ch.id)}" ${(sc.characterIds||[]).includes(ch.id)?"selected":""}>${escapeHtml(ch.name)} — ${escapeHtml(ch.role||"Personaje")}</option>`).join("")}</select></label><div class="prompt-label"><span>Prompt de vídeo</span><button class="btn small" data-action="copy" data-id="${sc.id}">▣ Copiar prompt</button></div>
+   <div class="prompt" id="prompt-${sc.id}" contenteditable="true" spellcheck="false" aria-label="Prompt editable del clip ${sc.number}">${escapeHtml(sc.prompt)}</div>
+   <div class="scene-actions"><button class="btn small" data-action="copyDialogue" data-id="${sc.id}">Copiar diálogo</button><button class="btn small" data-action="copyEnd" data-id="${sc.id}">Copiar estado final</button><button class="btn small" data-action="download" data-id="${sc.id}">↓ Descargar clip</button></div>
+   <details class="details"><summary>Ver continuidad y detalles del clip</summary><div class="detail-grid"><div class="detail-box"><strong>Estado heredado</strong><p>${escapeHtml(sc.previousState)}</p></div><div class="detail-box"><strong>Estado final / enlace siguiente</strong><p>${escapeHtml(sc.endState)}</p></div><div class="detail-box"><strong>Diálogo</strong><p>${escapeHtml(sc.dialogue)}</p></div><div class="detail-box"><strong>Cámara</strong><p>${escapeHtml(sc.camera)}</p></div></div></details>
+  </div>
+ </article>`).join("");
+ renderAssignments();
+}
+function syncEditedPrompts() {
+ scenes.forEach(sc=>{const el=$("prompt-"+sc.id);if(el)sc.prompt=el.innerText;});
+}
+function showToast(msg) {
+ const t=$("toast"); t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2400);
+}
+async function copyText(text) {
+ try { await navigator.clipboard.writeText(text); showToast("Copiado al portapapeles."); }
+ catch(e) {
+  const area=document.createElement("textarea");area.value=text;area.style.position="fixed";area.style.opacity="0";document.body.appendChild(area);area.select();
+  try{document.execCommand("copy");showToast("Copiado al portapapeles.");}catch(err){showToast("No se pudo copiar. Selecciona y copia el texto manualmente.");}
+  area.remove();
+ }
+}
+function downloadFile(filename,content,type="text/plain;charset=utf-8") {
+ const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=filename.replace(/[\\/:*?"<>|]/g,"-");document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function allText() {
+ syncEditedPrompts();
+ return `VIDEOPROMPT STUDIO PRO\nPROYECTO: ${$("projectName").value.trim()}\nIDEA: ${$("idea").value.trim()}\nCLIPS: ${scenes.length} · DURACIÓN: ${scenes.length*8} segundos\n\nBIBLIOTECA DE PERSONAJES:\n${characters.map(characterDescription).join("\\n")}\n\n`+scenes.map(s=>`==============================\nCLIP ${s.number}: ${s.title} (${s.start}-${s.end}s)\n==============================\n${s.prompt}\n`).join("\n");
+}
+function saveProject() {
+ syncEditedPrompts();
+ const s=getSettings();
+ const project={id:Date.now(),name:s.projectName,updatedAt:new Date().toISOString(),settings:s,scenes,characters,activeFeatures};
+ let list=[];
+ try{list=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");if(!Array.isArray(list))list=[];}catch(e){list=[];}
+ const existing=list.findIndex(p=>p.name===project.name);
+ if(existing>=0)list[existing]=project;else list.unshift(project);
+ list=list.slice(0,30);
+ try{localStorage.setItem(STORAGE_KEY,JSON.stringify(list));showToast("Proyecto guardado en este navegador.");}
+ catch(e){showToast("No se pudo guardar: almacenamiento local lleno o bloqueado.");}
+}
+function loadSettings(s) {
+ $("idea").value=s.idea??defaultValues.idea;$("projectName").value=s.projectName??defaultValues.projectName;
+ $("count").value=String(s.count??5);$("style").value=s.style??"Anime";$("format").value=s.format??"vertical 9:16";
+ $("sound").value=s.sound??defaultValues.sound;$("continuity").value=s.continuity??"directa";
+ $("character").value=s.character??defaultValues.character;$("world").value=s.world??defaultValues.world;
+ $("voice").value=s.voice??defaultValues.voice;$("keepContinuity").checked=s.keepContinuity!==false;$("negative").checked=s.negative!==false;
+}
+function openSaved() {
+ let list=[];try{list=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");}catch(e){}
+ $("savedList").innerHTML="";
+ if(!list.length)$("savedList").innerHTML='<div class="empty">Todavía no hay proyectos guardados.</div>';
+ list.forEach(p=>{
+  const row=document.createElement("div");row.className="saved-item";
+  const span=document.createElement("span");span.textContent=p.name+" · "+new Date(p.updatedAt).toLocaleString("es-ES");
+  const actions=document.createElement("div");actions.className="toolbar";
+  const load=document.createElement("button");load.className="btn small";load.textContent="Abrir";load.addEventListener("click",()=>{loadSettings(p.settings||{});if(Array.isArray(p.characters)){characters=p.characters;persistCharacters();renderCharacters();}if(Array.isArray(p.activeFeatures)){activeFeatures=p.activeFeatures;persistFeatures();renderFeatures();}scenes=p.scenes||buildScenes(getSettings());render();$("savedModal").classList.remove("show");showToast("Proyecto cargado.");});
+  const del=document.createElement("button");del.className="btn small danger";del.textContent="Borrar";del.addEventListener("click",()=>{if(confirm("¿Borrar el proyecto guardado «"+p.name+"»?")){const next=list.filter(x=>x.id!==p.id);localStorage.setItem(STORAGE_KEY,JSON.stringify(next));openSaved();}});
+  actions.append(load,del);row.append(span,actions);$("savedList").append(row);
+ });
+ $("savedModal").classList.add("show");
+}
+function generate() {
+ const s=getSettings();
+ if(!s.idea){showToast("Escribe una idea para tu historia.");$("idea").focus();return;}
+ scenes=buildScenes(s);render();showToast("Historia generada: "+scenes.length+" clips conectados.");
+}
+$("generateBtn").addEventListener("click",generate);
+$("resetBtn").addEventListener("click",()=>{loadSettings(defaultValues);generate();});
+$("saveBtn").addEventListener("click",saveProject);
+$("savedBtn").addEventListener("click",openSaved);
+$("closeSaved").addEventListener("click",()=>$("savedModal").classList.remove("show"));
+$("savedModal").addEventListener("click",e=>{if(e.target===$("savedModal"))$("savedModal").classList.remove("show");});
+$("copyAllBtn").addEventListener("click",()=>copyText(allText()));
+$("exportAllBtn").addEventListener("click",()=>downloadFile(($("projectName").value||"historia")+".txt",allText()));
+$("txtBtn").addEventListener("click",()=>downloadFile(($("projectName").value||"historia")+".txt",allText()));
+$("jsonBtn").addEventListener("click",()=>{syncEditedPrompts();downloadFile(($("projectName").value||"historia")+".json",JSON.stringify({project:getSettings(),scenes,characters,activeFeatures},null,2),"application/json;charset=utf-8");});
+$("sceneList").addEventListener("click",e=>{
+ const b=e.target.closest("button[data-action]");if(!b)return;
+ const sc=scenes.find(x=>x.id===b.dataset.id);if(!sc)return;
+ syncEditedPrompts();
+ if(b.dataset.action==="copy")copyText(sc.prompt);
+ if(b.dataset.action==="copyDialogue")copyText(sc.dialogue);
+ if(b.dataset.action==="copyEnd")copyText(sc.endState);
+ if(b.dataset.action==="download")downloadFile(`clip-${String(sc.number).padStart(2,"0")}-${sc.title}.txt`,`${sc.title}\nDuración: 8 segundos\n\n${sc.prompt}`);
+});
+$("sceneList").addEventListener("input",e=>{
+ const el=e.target.closest(".prompt[contenteditable=true]");if(!el)return;
+ const sc=scenes.find(x=>"prompt-"+x.id===el.id);if(sc)sc.prompt=el.innerText;
+});
+try{const savedFeatures=JSON.parse(localStorage.getItem(FEATURE_KEY)||"[]");if(Array.isArray(savedFeatures))activeFeatures=savedFeatures.filter(i=>Number.isInteger(i)&&i>=0&&i<60);}catch(e){}
+loadCharacters();renderCharacters();renderFeatures();
+
+$("addCharacterBtn").addEventListener("click",saveCharacterFromForm);
+$("clearCharacterFormBtn").addEventListener("click",clearCharacterForm);
+$("characterList").addEventListener("click",e=>{const b=e.target.closest("button[data-char-action]");if(!b)return;const ch=characters.find(c=>c.id===b.dataset.charId);if(!ch)return;if(b.dataset.charAction==="edit"){editingCharacterId=ch.id;const m={charName:"name",charRole:"role",charAge:"age",charBuild:"build",charFace:"face",charHair:"hair",charEyes:"eyes",charClothes:"clothes",charPersonality:"personality",charNotes:"notes"};Object.entries(m).forEach(([id,k])=>$(id).value=ch[k]||"");$("addCharacterBtn").textContent="Guardar cambios";$("charName").focus();}else if(b.dataset.charAction==="delete"&&confirm("¿Borrar el personaje "+ch.name+"?")){characters=characters.filter(c=>c.id!==ch.id);scenes.forEach(sc=>{sc.characterIds=(sc.characterIds||[]).filter(id=>id!==ch.id);updateSceneCharacters(sc);});persistCharacters();renderCharacters();render();showToast("Personaje borrado.");}});
+$("characterAssignments").addEventListener("change",e=>{const cb=e.target.closest("input[data-clip-character]");if(!cb)return;const sc=scenes.find(x=>x.id===cb.dataset.clipCharacter);if(!sc)return;sc.characterIds=sc.characterIds||[];if(cb.checked&&!sc.characterIds.includes(cb.value))sc.characterIds.push(cb.value);if(!cb.checked)sc.characterIds=sc.characterIds.filter(id=>id!==cb.value);updateSceneCharacters(sc);render();showToast("Asignación actualizada.");});
+$("sceneList").addEventListener("change",e=>{const sel=e.target.closest("select[data-assign-clip]");if(!sel)return;const sc=scenes.find(x=>x.id===sel.dataset.assignClip);if(!sc)return;sc.characterIds=Array.from(sel.selectedOptions).map(o=>o.value);updateSceneCharacters(sc);render();showToast("Personajes del clip actualizados.");});
+$("featureGrid").addEventListener("change",e=>{const cb=e.target.closest("input[data-feature-index]");if(!cb)return;const i=Number(cb.dataset.featureIndex);activeFeatures=cb.checked?Array.from(new Set([...activeFeatures,i])):activeFeatures.filter(x=>x!==i);persistFeatures();$("featureCount").textContent=`${activeFeatures.length} de 60 activadas`;showToast("Opciones guardadas. Regenera la historia para aplicarlas a todos los clips.");});
+$("selectAllFeaturesBtn").addEventListener("click",()=>{activeFeatures=featureNames.map((_,i)=>i);persistFeatures();renderFeatures();showToast("Las 60 funciones están activadas.");});
+$("clearFeaturesBtn").addEventListener("click",()=>{activeFeatures=[];persistFeatures();renderFeatures();showToast("Controles avanzados desactivados.");});
+$("exportCharactersBtn").addEventListener("click",()=>downloadFile("personajes-videoprompt.json",JSON.stringify(characters,null,2),"application/json;charset=utf-8"));
+$("importCharactersFile").addEventListener("change",async e=>{const file=e.target.files&&e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!Array.isArray(data))throw new Error("El JSON debe contener una lista de personajes.");const valid=data.filter(c=>c&&typeof c.name==="string").map((c,i)=>({...c,id:c.id||("import-"+Date.now()+"-"+i)}));if(!valid.length)throw new Error("No se encontraron personajes válidos.");const map=new Map(characters.map(c=>[c.id,c]));valid.forEach(c=>map.set(c.id,c));characters=Array.from(map.values());persistCharacters();renderCharacters();render();showToast("Personajes importados.");}catch(err){showToast("Error al importar: "+err.message);}finally{e.target.value="";}});
+
+generate();
+})();
+</script>
+</body>
+</html>
