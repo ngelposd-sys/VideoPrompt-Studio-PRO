@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b18">
+<meta name="description" content="VideoPrompt Studio PRO — crea historias audiovisuales, clips conectados y prompts cinematográficos exportables.">
+<title>VideoPrompt Studio PRO — V2.8</title>
+<style>
+:root{--bg:#080a16;--panel:#101429;--panel2:#151a34;--line:#292f55;--text:#f3f4ff;--muted:#a4accd;--blue:#63d5ff;--purple:#a78bfa;--pink:#f0abfc;--green:#75f0c0;--danger:#ff829b;--radius:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#29205a 0,transparent 38%),radial-gradient(ellipse at 100% 15%,#102b50 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}a{color:var(--blue)}
+.wrap{max-width:1320px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:22px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#6b5cff,#31c7f4);display:grid;place-items:center;box-shadow:0 8px 35px #675cff45;font-size:25px}.brand h1{font-size:20px;line-height:1.15;margin:0;letter-spacing:-.5px}.brand p{margin:5px 0 0;color:var(--muted);font-size:12px}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.eyebrow{color:var(--blue);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.7px}.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:18px;margin-bottom:18px}.hero-main,.hero-side,.panel,.scene-card{background:linear-gradient(145deg,#141832ef,#0f1225f2);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 14px 50px #0002}.hero-main{padding:26px;position:relative;overflow:hidden}.hero-main:after{content:"";position:absolute;width:220px;height:220px;right:-60px;bottom:-130px;border-radius:50%;background:#806cff25;filter:blur(5px);pointer-events:none}h2{font-size:clamp(25px,4vw,39px);line-height:1.12;letter-spacing:-1px;margin:8px 0 12px}.gradient{background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{color:var(--muted);max-width:720px;margin:0}.hero-side{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{padding:13px;border:1px solid var(--line);border-radius:13px;background:#090d1c70}.stat strong{display:block;font-size:22px}.stat span{font-size:12px;color:var(--muted)}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #355b69;background:#12313b80;color:#aaf0ff;border-radius:99px;padding:5px 10px;font-size:11px;font-weight:700}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
+.layout{display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:18px;align-items:start}.leftcol{display:grid;gap:16px}.panel{padding:20px;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.panel h3{font-size:16px;margin:0}.section-tag{color:var(--muted);font-size:11px}.field{margin:0 0 14px}.field label,.label{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:700;margin-bottom:7px;color:#e5e8ff}.hint{color:var(--muted);font-weight:400;font-size:11px}.field input,.field textarea,.field select,.modal input,.modal textarea,.modal select{width:100%;border:1px solid #30375d;background:#090d1c;color:var(--text);border-radius:11px;padding:10px 12px;outline:none}.field textarea{resize:vertical;min-height:80px}.field select{appearance:auto}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checkrow{display:flex;gap:10px;align-items:flex-start;color:#dce0ff;font-size:12px;margin:13px 0}.checkrow input{accent-color:#8e7bff;margin-top:4px}.btn{border:1px solid #39416d;background:#1b2040;color:var(--text);border-radius:11px;padding:9px 12px;font-weight:700;font-size:12px;transition:.18s;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn:hover{transform:translateY(-1px);border-color:#7b83c9;background:#242a51}.btn.primary{background:linear-gradient(105deg,#6658f5,#318fd5);border:0;box-shadow:0 8px 24px #635bfa30}.btn.subtle{background:transparent}.btn.danger{color:#ffb0bd}.btn.full{width:100%;padding:13px}.btn.small{padding:6px 9px;font-size:11px}.toolbar{display:flex;gap:7px;flex-wrap:wrap}.rightcol{min-width:0}.projectbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px;flex-wrap:wrap}.projectbar h3{margin:0;font-size:18px}.progress-wrap{margin:0 0 17px}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:7px}.progress{height:5px;background:#252a49;border-radius:9px;overflow:hidden}.progress>span{height:100%;width:0;display:block;background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));border-radius:9px;transition:width .2s}.scene-list{display:grid;gap:13px}.scene-card{overflow:hidden}.scene-top{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid #252a49;background:#171b36}.scene-num{width:37px;height:37px;flex:0 0 auto;border-radius:12px;background:linear-gradient(135deg,#5145c9,#247eae);display:grid;place-items:center;font-weight:900}.scene-heading{min-width:0;flex:1}.scene-heading h4{margin:0;font-size:14px}.scene-heading p{margin:3px 0 0;color:var(--muted);font-size:11px}.scene-badge{font-size:10px;color:#b9f5df;background:#163a37;border:1px solid #28645a;padding:4px 8px;border-radius:99px;white-space:nowrap}.scene-body{padding:16px}.scene-desc{margin:0 0 12px;color:#dce0ff;font-size:13px}.scene-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}.chip{font-size:10px;color:#c9d1f6;background:#1a2040;border:1px solid #30375d;padding:4px 8px;border-radius:99px}.prompt-label{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0 7px;font-size:11px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.6px}.prompt{white-space:pre-wrap;overflow-wrap:anywhere;background:#090d1b;border:1px solid #292f53;border-radius:12px;padding:13px;color:#d8ddfb;font-size:12px;max-height:360px;overflow:auto;min-height:120px}.prompt[contenteditable=true]:focus{outline:2px solid #63d5ff88}.scene-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.details{margin-top:14px;border-top:1px solid #292f53;padding-top:12px}.details summary{cursor:pointer;color:#c7cfff;font-size:12px;font-weight:700}.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:11px}.detail-box{border:1px solid #292f53;background:#0b1021;border-radius:11px;padding:11px}.detail-box strong{display:block;font-size:10px;color:var(--purple);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px}.detail-box p{font-size:12px;color:#cfd5f6;margin:0;white-space:pre-wrap}.empty{border:1px dashed #3b426a;border-radius:14px;padding:25px;text-align:center;color:var(--muted)}.footer{margin:24px 0 8px;text-align:center;color:#7f88b1;font-size:11px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:50;padding:11px 16px;border-radius:12px;background:#1b2742;border:1px solid #4c6991;box-shadow:0 10px 40px #0008;color:#fff;font-size:13px;transition:.25s;max-width:calc(100vw - 28px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;inset:0;background:#03040bd9;display:none;align-items:center;justify-content:center;padding:16px;z-index:40}.modal-backdrop.show{display:flex}.modal{max-width:620px;width:100%;background:#11162c;border:1px solid #39416d;border-radius:18px;padding:22px;max-height:85vh;overflow:auto}.modal h3{margin:0 0 8px}.modal p{color:var(--muted);font-size:13px}.saved-list{display:grid;gap:8px;margin-top:14px}.saved-item,.character-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:11px;border:1px solid var(--line);border-radius:10px}.saved-item span{font-size:12px;overflow-wrap:anywhere;flex:1}.character-list{display:grid;gap:9px}.character-info{min-width:0;flex:1}.character-info strong{font-size:13px}.character-info p{font-size:11px;color:var(--muted);margin:4px 0;overflow-wrap:anywhere}.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.feature-check{display:flex;align-items:flex-start;gap:8px;padding:9px;border:1px solid #292f53;background:#0b1021;border-radius:10px;font-size:11px;color:#dce0ff}.feature-check input{margin-top:3px;accent-color:#8e7bff;flex:0 0 auto}.feature-check b{color:var(--purple)}.character-item .toolbar{margin-top:7px}.character-item select{max-width:100%}.hidden{display:none!important}.note{font-size:11px;color:var(--muted);margin:10px 0 0}.section-sep{border:0;border-top:1px solid var(--line);margin:16px 0}
+@media(max-width:950px){.hero{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.hero-side{display:grid;grid-template-columns:1fr 1fr;align-items:center}.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:12px}.top{align-items:flex-start}.brand h1{font-size:17px}.top-actions{width:100%}.top-actions .btn{flex:1}.hero-main{padding:19px}.hero-side{grid-template-columns:1fr}.panel{padding:14px}.scene-top{padding:11px}.scene-body{padding:12px}.scene-badge{display:none}.detail-grid,.feature-grid{grid-template-columns:1fr}.two{grid-template-columns:1fr 1fr}.prompt{font-size:12px}.saved-item{flex-wrap:wrap}}
+
+/* V2.1 — compact panels and storyboard */
+.panel-collapsible .panel-head{cursor:pointer;user-select:none}
+.panel-collapsible .panel-head .collapse-mark{width:27px;height:27px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;color:var(--blue);flex:0 0 auto;transition:transform .18s,background .18s}
+.panel-collapsible .panel-head:hover .collapse-mark{background:#202647}
+.panel-collapsible.is-collapsed>.panel-content{display:none}
+.panel-collapsible.is-collapsed{padding-bottom:13px}
+.panel-collapsible.is-collapsed .panel-head{margin-bottom:0}
+.panel-collapsible .panel-head{gap:12px}
+.panel-collapsible .panel-head .head-title{display:flex;align-items:center;gap:9px;min-width:0}
+.panel-collapsible .panel-head .head-title h3{margin:0}
+.panel-collapsible .panel-head .section-tag{margin-left:auto}
+.panel-collapsible .panel-head .collapse-mark{margin-left:0}
+.scene-card .scene-top{cursor:pointer}
+.scene-card .scene-top:hover{background:#1b2040}
+.scene-card .scene-collapse-mark{margin-left:4px;width:27px;height:27px;display:grid;place-items:center;border:1px solid #343b65;border-radius:8px;color:var(--blue);flex:0 0 auto}
+.scene-card.is-collapsed .scene-body{display:none}
+.scene-card.is-collapsed .scene-top{border-bottom:0}
+.scene-card.is-collapsed .scene-heading p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scene-card .scene-summary{display:none;color:var(--muted);font-size:11px;margin-top:4px}
+.scene-card.is-collapsed .scene-summary{display:block}
+.compact-toolbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+@media(max-width:560px){.panel-collapsible .panel-head{gap:8px}.panel-collapsible .panel-head .section-tag{display:none}.scene-heading h4{font-size:13px}.scene-num{width:32px;height:32px}.scene-card .scene-collapse-mark{width:25px;height:25px}}
+
+
+.sound-field{width:100%;grid-column:1 / -1}.sound-picker{position:relative}
+.sound-picker-trigger{width:100%;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;padding:13px 15px;border:1px solid var(--line,#303653);border-radius:15px;background:var(--input,#090d1c);color:inherit;font:inherit;cursor:pointer}
+.sound-picker-trigger #soundSummary{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sound-chevron{color:#72d9ff;font-size:1.15rem}
+.sound-picker-menu{position:absolute;z-index:60;top:calc(100% + 7px);right:0;left:auto;width:min(360px,calc(100vw - 32px));padding:12px;border:1px solid rgba(112,142,210,.38);border-radius:16px;background:#11162b;box-shadow:0 18px 45px rgba(0,0,0,.42);max-height:min(350px,55vh);overflow:auto}
+.sound-picker-menu[hidden]{display:none}
+.sound-picker-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.sound-mini{border:1px solid rgba(112,142,210,.35);border-radius:9px;background:#1a2140;color:inherit;padding:6px 10px;cursor:pointer}
+.sound-picker-options{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;width:100%}
+.field .sound-picker-options label,.sound-picker-options label{display:flex;align-items:center;justify-content:flex-start;width:100%;min-width:0;gap:10px;margin:0;padding:10px;border-radius:9px;line-height:1.35;font-size:13px;font-weight:500;color:var(--text);text-align:left;cursor:pointer}
+.sound-picker-options label:has(input:checked){background:rgba(88,192,255,.12)}
+.sound-picker-options input{accent-color:#65cfff;margin:0;flex:0 0 18px;width:18px;height:18px}
+.sound-picker-help{font-size:.8rem;color:#a6afca;margin:10px 2px 0}
+@media(max-width:560px){.sound-picker-menu{width:min(330px,calc(100vw - 28px));right:0;max-height:48vh}.field .sound-picker-options label,.sound-picker-options label{font-size:13px;padding:9px 8px}}
+
+
+/* Selector de personajes accesible en pantallas táctiles */
+.assign-picker{position:relative;width:100%}
+.assign-details{position:relative;border:1px solid #30375d;border-radius:12px;background:#090d1c;overflow:visible}
+.assign-details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:12px 14px;cursor:pointer;color:var(--text);font-size:13px}
+.assign-details>summary::-webkit-details-marker{display:none}
+.assign-chevron{color:#69d6ff;transition:transform .18s}
+.assign-details[open] .assign-chevron{transform:rotate(180deg)}
+.assign-options{display:grid;gap:4px;padding:8px;border-top:1px solid #292f53;max-height:220px;overflow-y:auto}
+.assign-option{display:flex!important;align-items:center;justify-content:flex-start!important;gap:10px!important;width:100%;padding:10px;border-radius:9px;background:#11162b;cursor:pointer;margin:0!important;font-size:12px!important;font-weight:500!important}
+.assign-option:has(input:checked){background:#1b2945;outline:1px solid #4b9fc5}
+.assign-option input{width:18px!important;height:18px;flex:0 0 18px;margin:0;accent-color:#65cfff}
+.assign-option span{display:grid;gap:3px;min-width:0}
+.assign-option strong{font-size:12px;color:#e6eaff;overflow-wrap:anywhere}
+.assign-option small{font-size:11px;color:#a6afca}
+.assign-empty{margin:0;padding:10px;color:#a6afca;font-size:12px;line-height:1.5}
+
+
+.global-character-field{margin-top:4px}
+.global-character-field>.hint{display:block;margin-top:8px;line-height:1.45}
+\n</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo" aria-hidden="true">🎬</div><div><h1>VideoPrompt Studio <span class="gradient">PRO</span></h1><p>STORY ENGINE · CONTINUIDAD · DIRECCIÓN CINEMATOGRÁFICA</p></div></div>
+  <div class="top-actions"><button class="btn" id="savedBtn">▤ Proyectos</button><button class="btn" id="saveBtn">Guardar</button><button class="btn" id="exportAllBtn">↓ Exportar TXT</button></div>
+</header>
+<section class="hero">
+  <div class="hero-main"><span class="pill"><span class="dot"></span> MOTOR LOCAL · SIN API</span><h2>De una idea a una historia de vídeo <span class="gradient">con continuidad.</span></h2><p class="lead">Diseña escenas, conserva personajes y lugares, controla la cámara y exporta prompts listos para adaptar a tu generador de vídeo. Esta aplicación crea prompts mediante reglas y plantillas locales; no genera el vídeo ni llama a una IA externa.</p></div>
+  <div class="hero-side"><div><div class="eyebrow">ESTADO DEL PROYECTO</div><h3 id="storyTitle" style="margin:7px 0 12px">Mi nueva historia</h3><span class="pill" id="continuityLabel">CONTINUIDAD ACTIVA</span></div><div class="stat-grid"><div class="stat"><strong id="statClips">00</strong><span>Clips creados</span></div><div class="stat"><strong id="statDuration">00:00</strong><span>Duración total</span></div></div></div>
+</section>
+<div class="layout">
+<aside class="leftcol">
+<section class="panel panel-collapsible is-collapsed" data-panel="characters">
+  <div class="panel-head" role="button" tabindex="0" aria-expanded="false"><div class="head-title"><span class="collapse-mark">+</span><h3>01 / Biblioteca de personajes</h3></div><span class="section-tag" id="characterCount">0 personajes</span></div><div class="panel-content">
+  <div class="field"><label for="charName">Nombre del personaje *</label><input id="charName" maxlength="80" placeholder="Ej. La abuela Carmen"></div>
+  <div class="two"><div class="field"><label for="charRole">Rol</label><input id="charRole" placeholder="Protagonista"></div><div class="field"><label for="charAge">Edad aparente</label><input id="charAge" placeholder="75 años"></div></div>
+  <div class="field"><label for="charBuild">Altura y complexión</label><input id="charBuild" placeholder="Baja, complexión robusta..."></div>
+  <div class="field"><label for="charFace">Rostro y rasgos</label><input id="charFace" placeholder="Rasgos distintivos..."></div>
+  <div class="two"><div class="field"><label for="charHair">Pelo</label><input id="charHair" placeholder="Blanco corto"></div><div class="field"><label for="charEyes">Ojos</label><input id="charEyes" placeholder="Marrones"></div></div>
+  <div class="field"><label for="charClothes">Vestuario y accesorios</label><textarea id="charClothes" placeholder="Ropa y objetos que no deben cambiar"></textarea></div>
+  <div class="field"><label for="charPersonality">Personalidad y voz</label><textarea id="charPersonality" placeholder="Carácter, acento, gestos, forma de hablar"></textarea></div>
+  <div class="field"><label for="charNotes">Detalles invariables</label><textarea id="charNotes" placeholder="Marcas, objetos, rasgos únicos..."></textarea></div>
+  <div class="toolbar"><button class="btn primary" id="addCharacterBtn">＋ Guardar personaje</button><button class="btn" id="clearCharacterFormBtn">Limpiar</button></div>
+  <hr class="section-sep">
+  <div class="toolbar" style="margin-bottom:12px"><button class="btn small" id="exportCharactersBtn">Exportar fichas JSON</button><label class="btn small" for="importCharactersFile">Importar fichas JSON</label><input class="hidden" id="importCharactersFile" type="file" accept=".json,application/json"></div>
+  <div class="character-list" id="characterList"><div class="empty">Todavía no hay personajes.</div></div>
+</div></section>
+<section class="panel panel-collapsible is-collapsed" data-panel="features">
+  <div class="panel-head" role="button" tabindex="0" aria-expanded="false"><div class="head-title"><span class="collapse-mark">+</span><h3>02 / Controles cinematográficos</h3></div><span class="section-tag" id="featureCount">0 de 60</span></div><div class="panel-content">
+  <p class="note" style="margin:0 0 12px">Elige controles compatibles entre sí. Se incorporarán a los prompts cuando generes o actualices la historia.</p>
+  <div class="toolbar" style="margin-bottom:12px"><button class="btn small" id="selectAllFeaturesBtn">Activar todos</button><button class="btn small" id="clearFeaturesBtn">Desactivar todos</button></div>
+  <div class="feature-grid" id="featureGrid"></div>
+</div></section>
+<section class="panel panel-collapsible" data-panel="setup">
+  <div class="panel-head" role="button" tabindex="0" aria-expanded="true"><div class="head-title"><span class="collapse-mark">−</span><h3>03 / Configurar historia</h3></div><span class="section-tag">SETUP</span></div><div class="panel-content">
+  <div class="field"><label for="projectName">Nombre del proyecto</label><input id="projectName" maxlength="100" value="Mi nueva historia" placeholder="Título del proyecto"></div>
+  <div class="field"><label for="idea">Idea o premisa <span class="hint">obligatorio</span></label><textarea id="idea" maxlength="1600" placeholder="Describe qué sucede, quién participa y qué quiere conseguir..."></textarea></div>
+  <div class="two">
+    <div class="field"><label for="count">Número de clips</label><select id="count"><option value="1">1 clip</option><option value="3">3 clips</option><option value="5" selected>5 clips</option><option value="8">8 clips</option><option value="10">10 clips</option><option value="15">15 clips</option><option value="20">20 clips</option></select></div>
+    <div class="field"><label for="style">Estilo visual</label><select id="style"><option>Cinematográfico realista</option><option>Anime cinematográfico</option><option>Anime shonen de acción</option><option>Anime seinen oscuro</option><option>Anime chibi / comedia</option><option>Anime retro años 90</option><option>Anime acuarela</option><option>Anime fantasía</option><option>Anime ciencia ficción</option><option>Animación 2D</option><option>Animación 3D</option><option>3D estilizado</option><option>Stop motion</option><option>Claymation / plastilina</option><option>Documental</option><option>Falso documental</option><option>Fantasía épica</option><option>Cyberpunk</option><option>Pixel art</option><option>Cómic occidental</option><option>Novela gráfica</option><option>Ilustración pintada</option><option>Minimalista</option><option>Realismo mágico</option><option>Terror sobrenatural</option><option>Comedia visual</option><option>Publicidad premium</option><option>Vídeo musical</option></select></div>
+  </div>
+  <div class="two">
+    <div class="field"><label for="format">Formato</label><select id="format"><option value="vertical 9:16">Vertical 9:16</option><option value="horizontal 16:9">Horizontal 16:9</option><option value="cuadrado 1:1">Cuadrado 1:1</option><option value="vertical 4:5">Vertical 4:5</option></select></div>
+  </div>
+  <div class="field sound-field"><label>Sonido <span class="hint">puedes elegir varios</span></label>
+  <div class="sound-picker" id="soundPicker">
+    <button type="button" class="sound-picker-trigger" id="soundPickerTrigger" aria-expanded="false" aria-controls="soundPickerMenu">
+      <span id="soundSummary">Diálogos cinematográficos</span><span class="sound-chevron">▾</span>
+    </button>
+    <div class="sound-picker-menu" id="soundPickerMenu" hidden>
+      <div class="sound-picker-top"><strong>Capas de sonido</strong><button type="button" class="sound-mini" id="soundClear">Limpiar</button></div>
+      <div class="sound-picker-options">
+        <label><input type="checkbox" name="soundOption" value="Diálogos cinematográficos" checked> Diálogos cinematográficos</label>
+        <label><input type="checkbox" name="soundOption" value="Narración profesional"> Narración profesional</label>
+        <label><input type="checkbox" name="soundOption" value="Voces japonesas y subtítulos en español"> Voces japonesas y subtítulos en español</label>
+        <label><input type="checkbox" name="soundOption" value="Voces en español estilo anime"> Voces en español estilo anime</label>
+        <label><input type="checkbox" name="soundOption" value="Conversación entre personajes"> Conversación entre personajes</label>
+        <label><input type="checkbox" name="soundOption" value="Monólogo interior"> Monólogo interior</label>
+        <label><input type="checkbox" name="soundOption" value="Música épica y banda sonora"> Música épica y banda sonora</label>
+        <label><input type="checkbox" name="soundOption" value="Música ambiental suave"> Música ambiental suave</label>
+        <label><input type="checkbox" name="soundOption" value="Suspense y sonido ambiental"> Suspense y sonido ambiental</label>
+        <label><input type="checkbox" name="soundOption" value="Efectos de combate"> Efectos de combate</label>
+        <label><input type="checkbox" name="soundOption" value="Efectos mágicos y poderes"> Efectos mágicos y poderes</label>
+        <label><input type="checkbox" name="soundOption" value="Ambiente realista del entorno"> Ambiente realista del entorno</label>
+        <label><input type="checkbox" name="soundOption" value="Efectos sonoros cómicos"> Efectos sonoros cómicos</label>
+        <label><input type="checkbox" name="soundOption" value="Audio ASMR / sonidos cercanos"> Audio ASMR / sonidos cercanos</label>
+        <label><input type="checkbox" name="soundOption" value="Silencio dramático"> Silencio dramático</label>
+        <label><input type="checkbox" name="soundOption" value="Sin música"> Sin música</label>
+        <label><input type="checkbox" name="soundOption" value="Sin diálogos"> Sin diálogos</label>
+      </div>
+      <p class="sound-picker-help">Marca varias opciones y pulsa fuera del menú para cerrarlo.</p>
+    </div>
+  </div>
+</div>
+  <div class="field"><label for="continuity">Tipo de continuidad</label><select id="continuity"><option value="directa">Continuidad directa</option><option value="transicion">Transición cinematográfica</option><option value="nuevo-plano">Mismo instante, nuevo plano</option><option value="ninguna">Sin continuidad: cada clip independiente</option><option value="montaje">Montaje de momentos / salto temporal</option><option value="flashback">Flashback o recuerdo</option><option value="paralela">Historias paralelas</option><option value="match-cut">Corte por semejanza visual (match cut)</option></select></div>
+  <div class="field"><label for="hookMode">Gancho narrativo</label><select id="hookMode"><option value="ambos">Gancho inicial y gancho final</option><option value="inicio">Solo gancho inicial</option><option value="final">Solo gancho final</option><option value="pregunta">Pregunta intrigante al inicio</option><option value="cliffhanger">Final en cliffhanger</option><option value="loop">Final que conecta con el inicio (loop)</option><option value="misterio">Misterio revelado poco a poco</option><option value="sorpresa">Revelación o giro inesperado al final</option><option value="emocional">Gancho emocional</option><option value="accion">Abrir con acción inmediata</option><option value="ninguno">Sin gancho especial</option></select><span class="hint">Define cómo empieza y termina la historia para captar la atención.</span></div>
+  <div class="field global-character-field"><label>Personajes de la biblioteca <span class="hint">puedes elegir uno o varios para toda la historia</span></label>
+  <div class="assign-picker" id="globalCharacterPicker">
+    <details class="assign-details">
+      <summary><span id="globalCharacterSummary">Usar descripción general del protagonista</span><span class="assign-chevron">▾</span></summary>
+      <div class="assign-options" id="globalCharacterOptions" role="group" aria-label="Personajes para toda la historia">
+        <p class="assign-empty">Crea personajes en «01 / Biblioteca de personajes» para poder seleccionarlos aquí.</p>
+      </div>
+    </details>
+  </div>
+  <span class="hint">Los personajes seleccionados se incluirán en todos los clips generados. También puedes ajustar personajes individualmente dentro de cada clip.</span>
+</div>
+<div class="field"><label for="character">Descripción general del protagonista</label><textarea id="character" placeholder="Aspecto, edad aparente, vestuario, rasgos distintivos..."></textarea></div>
+  <div class="field"><label for="world">Mundo y ambientación</label><textarea id="world" placeholder="Lugar, época, clima, objetos importantes, iluminación..."></textarea></div>
+  <div class="field"><label for="voice">Voz y comportamiento</label><input id="voice" placeholder="Timbre, acento, emoción, ritmo..."></div>
+  <label class="checkrow"><input type="checkbox" id="keepContinuity" checked><span><strong>Bloquear identidad y mundo</strong><br><span class="hint">Repite los rasgos clave en todos los clips.</span></span></label>
+  <label class="checkrow"><input type="checkbox" id="negative" checked><span><strong>Incluir prompt negativo</strong><br><span class="hint">Evita cambios de identidad, vestuario y geometría.</span></span></label>
+  <button class="btn primary full" id="generateBtn">✦ Generar / actualizar historia</button>
+  <button class="btn subtle full" id="resetBtn" style="margin-top:8px">Restablecer formulario</button>
+  <p class="note">Consejo: una premisa concreta produce mejores prompts. La generación es local y basada en reglas, no en inteligencia artificial generativa.</p>
+</div></section>
+</aside>
+<main class="rightcol">
+  <div class="panel" style="margin-bottom:14px">
+    <div class="projectbar"><div><div class="eyebrow">STORYBOARD</div><h3 id="storyboardTitle">Tu secuencia cinematográfica</h3></div><div class="toolbar"><button class="btn small" id="expandScenesBtn">＋ Abrir clips</button><button class="btn small" id="collapseScenesBtn">− Cerrar clips</button><button class="btn small" id="copyAllBtn">▣ Copiar todo</button><button class="btn small" id="txtBtn">TXT</button><button class="btn small" id="jsonBtn">JSON</button></div></div>
+    <div class="progress-wrap"><div class="progress-label"><span id="progressText">Genera una historia para empezar</span><span id="progressPercent">0%</span></div><div class="progress"><span id="progressBar"></span></div></div>
+    <div class="note">Puedes editar directamente el texto de cada prompt. Tus ediciones se conservan al copiar y exportar; si vuelves a generar la historia, los prompts se reconstruyen a partir de los controles actuales.</div>
+  </div>
+  <div class="scene-list" id="sceneList"><div class="empty">Escribe una idea y pulsa «Generar / actualizar historia» para crear los clips.</div></div>
+</main>
+</div>
+<footer class="footer">VIDEOPROMPT STUDIO PRO · V2.8 · Tus proyectos se guardan en este navegador. Exporta copias JSON para trasladarlos a otro dispositivo.</footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="savedModal" role="dialog" aria-modal="true" aria-labelledby="savedTitle"><div class="modal"><div class="panel-head"><h3 id="savedTitle">Proyectos guardados</h3><button class="btn small" id="closeSaved">Cerrar ✕</button></div><p>Los proyectos se almacenan en el navegador de este dispositivo, no en una cuenta online.</p><div class="saved-list" id="savedList"></div></div></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const STORE='vpspro-v2-projects',CHAR_STORE='vpspro-v2-characters',FEATURE_STORE='vpspro-v2-features';
+let scenes=[],characters=[],activeFeatures=[],editingCharacterId=null,toastTimer=null;
+const defaults={idea:'Una anciana entra en un pequeño bar de pueblo y cuenta una historia cómica que sorprende a todos',projectName:'Una historia por contar',count:'5',style:'Comedia visual',format:'vertical 9:16',sound:'Diálogos cinematográficos',continuity:'directa',hookMode:'ambos',character:'Una anciana expresiva, pelo blanco corto, ropa tradicional cómoda y gestos muy naturales',world:'Un bar de pueblo acogedor, barra de madera, mesas sencillas, luz cálida de tarde',voice:'Voz cercana, acento regional natural, ritmo expresivo y pausas cómicas',keepContinuity:true,negative:true};
+const featureNames=[
+'Movimiento de cámara suave','Plano secuencia','Primer plano emocional','Plano general de contexto','Ángulo contrapicado','Ángulo cenital','Seguimiento del protagonista','Profundidad de campo','Cambio de foco cinematográfico','Composición cinematográfica','Luz de amanecer','Luz de atardecer','Contraluz dramático','Iluminación volumétrica','Paleta de color fija','Contraste alto','Neón ambiental','Sombras realistas','Grano cinematográfico','Exposición estable','Clima persistente','Viento visible','Lluvia o partículas','Niebla ambiental','Objetos persistentes','Geografía coherente','Época temporal fija','Fondo con profundidad','Elementos de escala','Detalles del escenario estables','Expresiones faciales claras','Lenguaje corporal natural','Gestos de manos controlados','Mirada con objetivo','Emoción dominante','Reacciones entre personajes','Distancia interpersonal','Posición en pantalla fija','Dirección de movimiento fija','Coreografía de acción legible','Voz consistente','Sincronización labial','Ambiente continuo','Efectos sonoros puntuales','Música con intensidad gradual','Pausas naturales','Diálogo breve','Silencios dramáticos','Sin música de fondo','Mezcla de audio equilibrada','Anatomía consistente','Manos bien definidas','Sin duplicados','Sin cambios de vestuario','Sin objetos que desaparecen','Transición de estado exacta','Ritmo narrativo progresivo','Acción legible','Final preparado para el siguiente clip','Sin texto incrustado ni marcas de agua'];
+const stages=[
+{title:'Presentación',goal:'presenta claramente el lugar, al protagonista y la situación inicial',camera:'Plano general de establecimiento que avanza lentamente hacia un plano medio del protagonista',end:'El protagonista queda claramente situado en el escenario; su postura, orientación, objetos cercanos y dirección de mirada quedan definidos'},
+{title:'Incidente',goal:'introduce el acontecimiento que pone en marcha la historia y una reacción visible',camera:'Plano medio estable con un acercamiento sutil al detalle que desencadena la acción',end:'El protagonista reacciona al acontecimiento y mantiene una postura concreta; el objeto o elemento que lo provoca permanece visible'},
+{title:'Respuesta',goal:'muestra al protagonista tomando una decisión y realizando una acción clara',camera:'Seguimiento suave del movimiento principal, manteniendo el eje espacial y el fondo reconocible',end:'La acción principal queda completada a medias y el protagonista termina en una posición definida que permite continuar sin salto'},
+{title:'Complicación',goal:'añade una dificultad, sorpresa o nueva información coherente con la premisa',camera:'Plano medio con cambio de foco controlado hacia la nueva información, sin cambiar de lugar de forma abrupta',end:'La nueva dificultad queda visible y el protagonista la observa; conservar la posición de los objetos y la iluminación'},
+{title:'Reacción',goal:'dedica un momento a la emoción, la respuesta o el diálogo del protagonista',camera:'Primer plano emocional breve y natural; mantener mirada, expresión y dirección de luz consistentes',end:'La reacción termina con una expresión legible y una orientación de cuerpo estable'},
+{title:'Progreso',goal:'hace avanzar la acción hacia una solución o un descubrimiento',camera:'Travelling moderado que revela solo la parte del entorno necesaria para comprender el avance',end:'El protagonista queda más cerca de su objetivo; conservar la continuidad de recorrido y los elementos del entorno'},
+{title:'Giro',goal:'introduce un giro que se desprende de la premisa y modifica lo que el protagonista espera',camera:'Acercamiento gradual al detalle revelador y reacción del protagonista sin cortes bruscos',end:'El giro queda establecido visualmente y el protagonista responde de forma coherente'},
+{title:'Clímax',goal:'muestra la acción o decisión más importante de la historia con lectura visual clara',camera:'Composición cinematográfica en la que se entienden protagonista, objetivo y consecuencia',end:'La acción decisiva alcanza un punto reconocible; conservar la posición final de cada personaje y objeto'},
+{title:'Resolución',goal:'muestra la consecuencia de la acción principal y empieza a cerrar la historia',camera:'Plano medio que se abre suavemente para mostrar el resultado en su contexto',end:'La consecuencia queda clara y el protagonista adopta una postura estable; el ambiente sigue siendo el mismo'},
+{title:'Cierre',goal:'ofrece una imagen final satisfactoria, memorable o abierta según la premisa',camera:'Plano final compuesto con movimiento lento o cámara fija para dejar respirar el desenlace',end:'Termina en una imagen final clara y estable, sin añadir personajes ni sucesos que contradigan la historia'}
+];
+const negativeText='cambio de rostro o identidad, cambio de vestuario, duplicación de personajes, extremidades deformes, manos extra, objetos que desaparecen, arquitectura cambiante, saltos de posición, cámara temblorosa involuntaria, texto ilegible, subtítulos automáticos, marcas de agua, cortes bruscos, inconsistencias de estilo';
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600);}
+function updateSoundSummary(){
+ const selected=[...document.querySelectorAll('input[name="soundOption"]:checked')].map(el=>el.value);
+ const summary=$('soundSummary');
+ if(summary) summary.textContent=selected.length===0?'Sin capas seleccionadas':selected.length===1?selected[0]:`${selected.length} tipos de sonido seleccionados`;
+}
+$('soundPickerTrigger').addEventListener('click',()=>{
+ const menu=$('soundPickerMenu'), open=menu.hidden;
+ menu.hidden=!open;
+ $('soundPickerTrigger').setAttribute('aria-expanded',String(open));
+});
+document.querySelectorAll('input[name="soundOption"]').forEach(el=>el.addEventListener('change',updateSoundSummary));
+$('soundClear').addEventListener('click',()=>{
+ document.querySelectorAll('input[name="soundOption"]').forEach(el=>el.checked=false);
+ updateSoundSummary();
+});
+document.addEventListener('click',e=>{
+ const picker=$('soundPicker');
+ if(picker && !picker.contains(e.target)){
+  $('soundPickerMenu').hidden=true;
+  $('soundPickerTrigger').setAttribute('aria-expanded','false');
+ }
+});
+function readSettings(){return{idea:$('idea').value.trim(),projectName:$('projectName').value.trim()||'Mi historia',count:Math.max(1,Math.min(20,Number($('count').value)||5)),style:$('style').value,format:$('format').value,sound:[...document.querySelectorAll('input[name="soundOption"]:checked')].map(el=>el.value),continuity:$('continuity').value,character:$('character').value.trim(),selectedCharacterIds:[...document.querySelectorAll('input[data-global-char]:checked')].map(el=>el.value),world:$('world').value.trim(),voice:$('voice').value.trim(),keepContinuity:$('keepContinuity').checked,negative:$('negative').checked};}
+function loadSettings(s){const d={...defaults,...(s||{})};['idea','projectName','count','style','format','continuity','hookMode','character','world','voice'].forEach(k=>{if($(k))$(k).value=d[k]??defaults[k];});
+ const savedSounds=Array.isArray(d.sound)?d.sound:[(d.sound||defaults.sound)];
+ document.querySelectorAll('input[name="soundOption"]').forEach(el=>el.checked=savedSounds.includes(el.value));
+ updateSoundSummary();renderGlobalCharacterPicker(Array.isArray(d.selectedCharacterIds)?d.selectedCharacterIds:[]);$('keepContinuity').checked=d.keepContinuity!==false;$('negative').checked=d.negative!==false;}
+function safeRead(key,fallback){try{const v=JSON.parse(localStorage.getItem(key)||'null');return v??fallback;}catch(e){return fallback;}}
+function saveCharacters(){try{localStorage.setItem(CHAR_STORE,JSON.stringify(characters));}catch(e){toast('No se pudieron guardar las fichas en este navegador.');}}
+function saveFeatures(){try{localStorage.setItem(FEATURE_STORE,JSON.stringify(activeFeatures));}catch(e){}}
+function characterDescription(c){return `${c.name} (${c.role||'personaje'}). Edad aparente: ${c.age||'no especificada'}. Altura y complexión: ${c.build||'mantener diseño establecido'}. Rostro: ${c.face||'conservar rasgos de referencia'}. Pelo: ${c.hair||'sin especificar'}. Ojos: ${c.eyes||'sin especificar'}. Vestuario y accesorios fijos: ${c.clothes||'conservar vestuario establecido'}. Personalidad y voz: ${c.personality||'coherentes con la escena'}. Detalles invariables: ${c.notes||'mantener identidad y continuidad'}.`;}
+function renderGlobalCharacterPicker(selectedIds=[]){
+ const box=$('globalCharacterOptions'),summary=$('globalCharacterSummary');
+ if(!box||!summary)return;
+ const validIds=selectedIds.filter(id=>characters.some(c=>c.id===id));
+ box.innerHTML=characters.length?characters.map(c=>`<label class="assign-option"><input type="checkbox" data-global-char value="${esc(c.id)}" ${validIds.includes(c.id)?'checked':''}><span><strong>${esc(c.name)}</strong><small>${esc(c.role||'Personaje')}</small></span></label>`).join(''):'<p class="assign-empty">Crea personajes en «01 / Biblioteca de personajes» para poder seleccionarlos aquí.</p>';
+ summary.textContent=validIds.length?`${validIds.length} personaje${validIds.length===1?'':'s'} para toda la historia`:'Usar descripción general del protagonista';
+}
+$('globalCharacterOptions').addEventListener('change',e=>{
+ const cb=e.target.closest('input[data-global-char]');if(!cb)return;
+ const selected=[...document.querySelectorAll('input[data-global-char]:checked')].map(el=>el.value);
+ $('globalCharacterSummary').textContent=selected.length?`${selected.length} personaje${selected.length===1?'':'s'} para toda la historia`:'Usar descripción general del protagonista';
+ toast('Personajes globales seleccionados. Pulsa «Generar / actualizar historia» para aplicarlos.');
+});
+function renderCharacters(){
+ $('characterCount').textContent=`${characters.length} personaje${characters.length===1?'':'s'}`;
+ $('characterList').innerHTML=characters.length?characters.map(c=>`<div class="character-item"><div class="character-info"><strong>${esc(c.name)}</strong><p>${esc(c.role||'Sin rol')} · ${esc(c.age||'Edad sin especificar')}</p><p>${esc((c.clothes||c.face||'Sin descripción').slice(0,180))}</p><div class="toolbar"><button class="btn small" data-char-edit="${esc(c.id)}">Editar</button><button class="btn small danger" data-char-delete="${esc(c.id)}">Borrar</button></div></div></div>`).join(''):'<div class="empty">Todavía no hay personajes.</div>';
+}
+function renderFeatures(){
+ $('featureGrid').innerHTML=featureNames.map((n,i)=>`<label class="feature-check"><input type="checkbox" data-feature="${i}" ${activeFeatures.includes(i)?'checked':''}><span><b>${String(i+1).padStart(2,'0')}.</b> ${esc(n)}</span></label>`).join('');
+ $('featureCount').textContent=`${activeFeatures.length} de ${featureNames.length} activadas`;
+}
+function inferTheme(idea){
+ const t=idea.toLowerCase();
+ const comedy=/chiste|cómic|comedia|abuela|abuelo|bar|risas|grac|broma|pueblo|vecin/.test(t);
+ const action=/persec|escapa|lucha|pelea|explos|batalla|ataque|corre|rescate/.test(t);
+ const mystery=/mister|secreto|desapare|detective|enigma|extrañ|misterios|descubre|hallazgo/.test(t);
+ const romance=/amor|románt|pareja|beso|enamor|boda/.test(t);
+ const fantasy=/dragón|magia|hechizo|fantasía|reino|bruja|monstruo|alien|marte|espacial/.test(t);
+ const documentary=/documental|historia real|explica|naturaleza|animal|cultivo|olivo|huerto|histórico/.test(t);
+ return comedy?'comedia':action?'acción':mystery?'misterio':romance?'romance':fantasy?'fantasía':documentary?'documental':'drama';
+}
+function buildAction(s,i,theme,prev,stageIndex=i){
+ const opening=[
+`Establece visualmente la premisa: ${s.idea}. Presenta el lugar y al protagonista antes de desarrollar la acción.`,
+`A partir de la situación anterior, aparece un detalle relacionado con «${s.idea}» que cambia el curso de la escena. El protagonista lo detecta y reacciona de forma visible.`,
+`El protagonista toma una decisión motivada por lo ocurrido y realiza una acción principal clara, comprensible y físicamente posible.`,
+`Surge una complicación directamente relacionada con «${s.idea}». La cámara muestra la causa y la reacción sin confundir la geografía de la escena.`,
+`El protagonista responde a la complicación mediante una acción, gesto o diálogo breve; la emoción debe ser visible y coherente con el momento.`,
+`La situación avanza hacia su objetivo. Introduce un cambio visual concreto en el entorno o en la posición del protagonista, sin alterar detalles ya establecidos.`,
+`Aparece una información o reacción inesperada que nace de la premisa. Evita introducir elementos arbitrarios que no guarden relación con la historia.`,
+`El protagonista afronta la decisión o acción de mayor importancia. La relación entre causa, acción y consecuencia debe entenderse sin explicación adicional.`,
+`Muestra el resultado inmediato de la acción principal y la reacción de los personajes presentes. Conserva el lugar, el vestuario y los objetos.`,
+`Cierra la historia con una imagen memorable relacionada con «${s.idea}». Deja una pausa visual final y no añadas un nuevo conflicto sin resolver.`
+ ];
+ let action=opening[Math.max(0,Math.min(stageIndex,9))];
+ if(theme==='comedia'){
+  const comedyBits=['una mirada cómplice y un pequeño gesto cotidiano','una reacción de sorpresa que contrasta con la tranquilidad del entorno','un malentendido visual sencillo y fácil de entender','una pausa expresiva antes de la respuesta','una reacción espontánea de los presentes, sin exagerar la anatomía'];
+  action+=` Tono de comedia: ${comedyBits[i%comedyBits.length]}; humor basado en la situación, las miradas y el ritmo, sin convertirlo en una escena distinta.`;
+ }else if(theme==='acción'){
+  action+=' Tono de acción: prioriza movimientos legibles, una dirección de desplazamiento constante y consecuencias físicas claras; evita coreografías confusas.';
+ }else if(theme==='misterio'){
+  action+=' Tono de misterio: revela la información de forma gradual, mantén visible la pista importante y utiliza tensión contenida en lugar de añadir explicaciones innecesarias.';
+ }else if(theme==='romance'){
+  action+=' Tono romántico: prioriza miradas, gestos pequeños, distancia interpersonal natural y emoción sincera, sin forzar contacto físico.';
+ }else if(theme==='fantasía'){
+  action+=' Tono fantástico: los elementos extraordinarios deben mantener diseño, escala, iluminación y reglas visuales constantes.';
+ }else if(theme==='documental'){
+  action+=' Tono documental: representación observacional, detalles concretos, movimientos naturales y ausencia de dramatización inventada que contradiga el tema.';
+ }
+ if(i>0 && s.continuity!=='ninguna' && s.continuity!=='montaje' && s.continuity!=='flashback' && s.continuity!=='paralela')action+=` Continuar desde el estado final anterior: ${prev}.`;
+ return action;
+}
+function makeScene(i,s,prior,theme){
+ const stageIndex=s.count<=1?0:Math.round(i*9/(s.count-1));
+ const stage=stages[stageIndex];
+ const start=i*8,end=start+8;
+ const action=buildAction(s,i,theme,prior,stageIndex);
+ const camera=stage.camera+(s.format==='vertical 9:16'?' Composición vertical: mantener rostro y acción principal dentro de la zona central segura.':s.format==='horizontal 16:9'?' Composición horizontal con espacio suficiente para el entorno y la dirección de movimiento.':' Composición equilibrada y centrada para formato cuadrado.');
+ const continuity=s.continuity==='directa'?'CONTINUIDAD DIRECTA: comienza exactamente desde la pose, ubicación, orientación de cámara, iluminación y movimiento final del clip anterior. No reiniciar la escena ni teletransportar personajes.':s.continuity==='transicion'?'TRANSICIÓN CINEMATOGRÁFICA: enlazar visualmente con el clip anterior mediante una transición fluida, conservando identidad, lugar, vestuario, iluminación y dirección del movimiento.':s.continuity==='nuevo-plano'?'MISMO INSTANTE, NUEVO PLANO: variar el encuadre de forma intencional, conservando el instante narrativo, posiciones, geografía, iluminación y eje de acción.':s.continuity==='ninguna'?'SIN CONTINUIDAD: este clip es una pieza independiente. No heredar posiciones, acciones ni estados del clip anterior; establecer desde cero el lugar, la acción y la composición que correspondan a este clip.':s.continuity==='montaje'?'MONTAJE / SALTO TEMPORAL: permite cambiar de momento, lugar o actividad entre clips; cada cambio debe ser intencional y visualmente comprensible. Conserva la identidad de los personajes salvo que la historia indique cambios.':s.continuity==='flashback'?'FLASHBACK: presenta un recuerdo o momento pasado claramente distinguible por el contexto visual o temporal. No confundirlo con el presente narrativo.':s.continuity==='paralela'?'HISTORIAS PARALELAS: alterna escenas o personajes en lugares distintos; deja claro el cambio de ubicación y no heredes posiciones físicas de una historia a otra.':'MATCH CUT: enlaza mediante una forma, movimiento, color u objeto semejante, creando un corte intencional entre escenas que pueden ser distintas.'; 
+ const hookModes={ambos:'GANCHO INICIAL Y FINAL: el primer clip debe abrir con una imagen, acción o frase intrigante; el último debe cerrar con una revelación, amenaza o pregunta que invite a continuar.',inicio:'GANCHO INICIAL: empieza con una imagen potente, un peligro inmediato o una pregunta visual; después desarrolla la premisa.',final:'GANCHO FINAL: desarrolla la escena con claridad y termina con una revelación o consecuencia inesperada.',pregunta:'PREGUNTA INTRIGANTE: abre con una pregunta visual o verbal concreta que la historia empiece a responder.',cliffhanger:'CLIFFHANGER: termina en el momento de máxima tensión, justo antes de conocer el resultado.',loop:'LOOP: la última imagen o acción debe enlazar visualmente con la primera para crear un ciclo natural.',misterio:'MISTERIO PROGRESIVO: presenta una pista intrigante y revela información gradualmente, sin resolverlo todo de inmediato.',sorpresa:'GIRO FINAL: prepara indicios discretos y termina con una revelación inesperada pero coherente con la premisa.',emocional:'GANCHO EMOCIONAL: empieza con una emoción reconocible y termina con una decisión, pérdida, reencuentro o gesto memorable.',accion:'ACCIÓN INMEDIATA: empieza en mitad de una acción llamativa, con el contexto explicado visualmente después.',ninguno:'SIN GANCHO ESPECIAL: empieza y termina de forma natural, priorizando claridad y cierre.'};
+ const hookInstruction=(s.hookMode==='inicio'&&i===0)||(s.hookMode==='ambos'&&i===0)||(s.hookMode==='pregunta'&&i===0)||(s.hookMode==='accion'&&i===0)||(s.hookMode==='emocional'&&i===0)||(s.hookMode==='final'&&i===s.count-1)||(s.hookMode==='ambos'&&i===s.count-1)||(s.hookMode==='cliffhanger'&&i===s.count-1)||(s.hookMode==='loop'&&i===s.count-1)||(s.hookMode==='misterio')||(s.hookMode==='sorpresa'&&i===s.count-1)?hookModes[s.hookMode]:'';
+
+ const chosenCharacters=(Array.isArray(s.selectedCharacterIds)?s.selectedCharacterIds:[]).map(id=>characters.find(c=>c.id===id)).filter(Boolean);
+ const characterBlock=chosenCharacters.length?chosenCharacters.map(c=>'- '+characterDescription(c)).join('\n'):s.character||'No se ha seleccionado ningún personaje de biblioteca; usar la descripción general del protagonista y la premisa.';
+ const selectedSounds=Array.isArray(s.sound)?s.sound:[s.sound].filter(Boolean);
+ const soundParts=[];
+ if(selectedSounds.includes('Sin diálogos')) soundParts.push('SIN DIÁLOGOS HABLADOS: comunicar la historia mediante actuación visual, ambiente y efectos.');
+ else {
+  if(selectedSounds.includes('Diálogos cinematográficos')) soundParts.push('Diálogos naturales y breves, sincronizados con la acción.');
+  if(selectedSounds.includes('Narración profesional')) soundParts.push('Narración profesional en off, breve y clara, solo cuando aporte contexto.');
+  if(selectedSounds.includes('Voces japonesas y subtítulos en español')) soundParts.push('Voces en japonés; subtítulos en español si el generador admite texto en pantalla.');
+  if(selectedSounds.includes('Voces en español estilo anime')) soundParts.push('Voces en español con interpretación expresiva de anime.');
+  if(selectedSounds.includes('Conversación entre personajes')) soundParts.push('Conversación entre los personajes presentes, con turnos claros.');
+  if(selectedSounds.includes('Monólogo interior')) soundParts.push('Monólogo interior diferenciado de los diálogos externos.');
+ }
+ if(selectedSounds.includes('Sin música')) soundParts.push('SIN MÚSICA: excluir la banda sonora musical.');
+ else {
+  if(selectedSounds.includes('Música épica y banda sonora')) soundParts.push('Banda sonora épica que acompaña la intensidad de la escena.');
+  if(selectedSounds.includes('Música ambiental suave')) soundParts.push('Música ambiental suave que no tapa las voces ni los efectos.');
+ }
+ if(selectedSounds.includes('Suspense y sonido ambiental')) soundParts.push('Ambiente de suspense con tensión sonora progresiva.');
+ if(selectedSounds.includes('Efectos de combate')) soundParts.push('Efectos de golpes y movimientos sincronizados con cada acción.');
+ if(selectedSounds.includes('Efectos mágicos y poderes')) soundParts.push('Efectos mágicos y de energía sincronizados con los poderes.');
+ if(selectedSounds.includes('Ambiente realista del entorno')) soundParts.push('Sonido ambiental coherente con el lugar.');
+ if(selectedSounds.includes('Efectos sonoros cómicos')) soundParts.push('Efectos cómicos puntuales, sin saturar la mezcla.');
+ if(selectedSounds.includes('Audio ASMR / sonidos cercanos')) soundParts.push('Sonidos cercanos y detallados, con textura espacial clara.');
+ if(selectedSounds.includes('Silencio dramático')) soundParts.push('Breve silencio dramático en el momento de mayor tensión.');
+ if(!soundParts.length) soundParts.push('Diseño sonoro coherente con la escena.');
+ let sound=soundParts.join(' ');
+ const features=activeFeatures.map(n=>featureNames[n]);
+ const incompatible=features.includes('Sin música de fondo')&&features.includes('Música con intensidad gradual');
+ const featureText=features.length?'\n\nCONTROLES CINEMATOGRÁFICOS:\n'+features.filter(f=>f!=='Música con intensidad gradual'||!incompatible).map(f=>'- '+f+': '+featureInstruction(f)).join('\n'):'';
+ const prompt=`Genera un clip de vídeo de exactamente 8 segundos, formato ${s.format}, estilo ${s.style}. Acabado visual profesional, movimiento fluido, composición clara y acción físicamente coherente.\n\nPREMISA: ${s.idea}\nPROYECTO: ${s.projectName}\nCLIP ${i+1} DE ${s.count} · TIEMPO GLOBAL ${start}–${end} s · FUNCIÓN NARRATIVA: ${stage.title}\n\nIDENTIDAD Y AMBIENTE:\n${s.keepContinuity?'Mantener identidad, vestuario, proporciones, voz, iluminación y diseño del mundo constantes entre clips.':''}\nProtagonista general: ${s.character||'definido por la premisa'}\nMundo y ambientación: ${s.world||'coherente con la premisa'}\nEstilo: ${s.style}. Paleta, acabado y escala consistentes.\nVoz: ${s.voice||'natural y coherente con el personaje'}\n\nPERSONAJES DE LA BIBLIOTECA:\n${characterBlock}\n\nCONTINUIDAD:\n${continuity}\n${s.continuity==='ninguna'?'ESTE CLIP ES AUTÓNOMO: establecer su propio inicio y no depender de los clips anteriores.':i===0?'ESTADO INICIAL: inicio de la historia. Presentar la posición inicial de personajes y objetos.':`ESTADO HEREDADO DEL CLIP ${i}: ${prior}. No alterar de forma arbitraria postura, ubicación, vestuario, objetos ni dirección de movimiento.`}\n\nGANCHO NARRATIVO:\n${hookInstruction||'Aplicar el modo seleccionado solo cuando corresponda a la posición de este clip.'}\n\nACCIÓN EN PANTALLA:\n${action}\nObjetivo narrativo de este clip: ${stage.goal}.\n\nCÁMARA Y COMPOSICIÓN:\n${camera} Mantener el eje espacial, la escala relativa y la dirección de movimiento. Un plano continuo salvo que la opción de continuidad solicite expresamente transición.\n\nDIÁLOGO Y SONIDO:\n${sound} Sincronizar labios cuando haya diálogo. Mantener timbre, acento, ambiente y mezcla coherentes. La voz debe caber naturalmente en 8 segundos.\n\nESTADO FINAL EXACTO:\n${stage.end} Adaptar el estado a la acción realmente mostrada y usarlo como punto de partida del clip siguiente.\n${s.negative?'\nPROMPT NEGATIVO: '+negativeText+'.':''}${featureText}`;
+ return{id:'clip-'+(i+1),number:i+1,title:stage.title, start,end,duration:8,action,dialogue:sound,camera,endState:stage.end,previousState:i===0?'Inicio de la historia':prior,prompt,negative:s.negative,characterIds:(Array.isArray(s.selectedCharacterIds)?s.selectedCharacterIds:[]),style:s.style,format:s.format,theme};
+}
+function featureInstruction(f){
+ const m={
+'Movimiento de cámara suave':'desplazamiento continuo y controlado, sin vibración accidental','Plano secuencia':'mantener una toma continua, sin cortes internos','Primer plano emocional':'priorizar expresión y mirada sin deformar rasgos','Plano general de contexto':'establecer geografía antes de acercarse a la acción','Ángulo contrapicado':'cámara por debajo de la línea de ojos con perspectiva natural','Ángulo cenital':'vista desde arriba solo si la acción sigue siendo legible','Seguimiento del protagonista':'seguir al protagonista manteniendo distancia y dirección constantes','Profundidad de campo':'separar sujeto y fondo sin perder elementos narrativos importantes','Cambio de foco cinematográfico':'cambiar el foco solo hacia un objeto o personaje relevante','Composición cinematográfica':'jerarquía visual clara y sujeto principal identificable','Luz de amanecer':'luz cálida baja y sombras largas coherentes','Luz de atardecer':'temperatura cálida estable y dirección solar constante','Contraluz dramático':'fuente de luz detrás del sujeto sin perder sus rasgos esenciales','Iluminación volumétrica':'haces de luz sutiles solo cuando la atmósfera lo justifique','Paleta de color fija':'mantener la misma paleta entre planos y clips','Contraste alto':'separar luces y sombras sin perder detalle importante','Neón ambiental':'mantener fuentes y reflejos de neón estables si existen en el mundo','Sombras realistas':'sombras coherentes con la posición y tamaño de las fuentes de luz','Grano cinematográfico':'grano fino y uniforme, sin artefactos','Exposición estable':'evitar parpadeos o cambios de exposición involuntarios','Clima persistente':'mantener el mismo clima y sus efectos en ropa, suelo y cabello','Viento visible':'viento con dirección constante que afecte de forma coherente a ropa y elementos ligeros','Lluvia o partículas':'partículas con densidad, dirección e iluminación consistentes','Niebla ambiental':'niebla estable según distancia y profundidad','Objetos persistentes':'no mover ni eliminar objetos sin acción visible','Geografía coherente':'mantener distribución, entradas, salidas y orientación del lugar','Época temporal fija':'no introducir elementos de otra época','Fondo con profundidad':'conservar capas de primer plano, plano medio y fondo','Elementos de escala':'mantener proporciones relativas entre personas y objetos','Detalles del escenario estables':'no cambiar decoración ni arquitectura entre clips','Expresiones faciales claras':'expresiones legibles y anatómicamente naturales','Lenguaje corporal natural':'gestos motivados por la acción y sin posturas imposibles','Gestos de manos controlados':'manos con cinco dedos cuando sean visibles y movimientos definidos','Mirada con objetivo':'dirigir la mirada hacia el objeto o personaje correspondiente','Emoción dominante':'mantener una emoción principal coherente con la escena','Reacciones entre personajes':'hacer que cada reacción responda a algo visible o audible','Distancia interpersonal':'mantener distancias físicas consistentes salvo movimiento explícito','Posición en pantalla fija':'no invertir posiciones relativas sin desplazamiento mostrado','Dirección de movimiento fija':'mantener dirección de desplazamiento y eje de cámara','Coreografía de acción legible':'separar claramente causa, movimiento y resultado','Voz consistente':'mismo timbre, acento, edad percibida y ritmo','Sincronización labial':'alinear el movimiento de labios con las palabras audibles','Ambiente continuo':'conservar el ambiente sonoro entre clips conectados','Efectos sonoros puntuales':'sincronizar efectos con el contacto o acontecimiento visible','Música con intensidad gradual':'subir o bajar la música gradualmente, sin saltos de volumen','Pausas naturales':'dejar respirar las reacciones y el diálogo','Diálogo breve':'usar frases cortas que quepan en el tiempo disponible','Silencios dramáticos':'usar pausas intencionales sin congelar la actuación','Sin música de fondo':'no añadir música; mantener solo diálogo, ambiente y efectos','Mezcla de audio equilibrada':'diálogo claro y efectos sin saturación','Anatomía consistente':'proporciones corporales estables y articulaciones plausibles','Manos bien definidas':'evitar dedos fusionados, extra o deformados','Sin duplicados':'no duplicar personas, objetos ni extremidades','Sin cambios de vestuario':'mantener ropa, accesorios y colores','Sin objetos que desaparecen':'conservar objetos salvo que se vea cómo se mueven o retiran','Transición de estado exacta':'terminar en una pose concreta que pueda retomarse en el siguiente clip','Ritmo narrativo progresivo':'cada clip debe avanzar la historia y no repetir la misma función','Acción legible':'una acción principal claramente visible en cada momento','Final preparado para el siguiente clip':'terminar con posición y movimiento compatibles con la escena siguiente','Sin texto incrustado ni marcas de agua':'no añadir rótulos, subtítulos automáticos, logotipos ni marcas de agua'};
+ return m[f]||'aplicar de forma coherente con la acción y sin contradicciones';
+}
+function buildScenes(s){const theme=inferTheme(s.idea),out=[];for(let i=0;i<s.count;i++){const prior=i?out[i-1].endState:'';out.push(makeScene(i,s,prior,theme));}return out;}
+function syncPrompts(){scenes.forEach(sc=>{const el=$('prompt-'+sc.id);if(el)sc.prompt=el.innerText;});}
+function render(){
+ const s=readSettings();$('storyTitle').textContent=s.projectName;$('storyboardTitle').textContent=s.projectName;$('statClips').textContent=String(scenes.length).padStart(2,'0');
+ const total=scenes.reduce((n,x)=>n+x.duration,0);$('statDuration').textContent=`${String(Math.floor(total/60)).padStart(2,'0')}:${String(total%60).padStart(2,'0')}`;
+ $('progressText').textContent=scenes.length?`${scenes.length} clips · ${total} segundos · ${s.format}`:'Genera una historia para empezar';$('progressPercent').textContent=scenes.length?'100%':'0%';$('progressBar').style.width=scenes.length?'100%':'0%';$('continuityLabel').textContent=s.keepContinuity?'CONTINUIDAD ACTIVA':'CONTINUIDAD PARCIAL';
+ $('sceneList').innerHTML=scenes.length?scenes.map(sc=>`<article class="scene-card is-collapsed" data-scene-card="${sc.id}"><div class="scene-top" role="button" tabindex="0" aria-expanded="false" data-scene-toggle="${sc.id}"><div class="scene-num">${String(sc.number).padStart(2,'0')}</div><div class="scene-heading"><h4>${esc(sc.title)}</h4><p>Clip ${sc.number} · ${sc.start}–${sc.end} segundos · duración 8 s</p><div class="scene-summary">${esc(sc.action.slice(0,115))}${sc.action.length>115?'…':''}</div></div><span class="scene-badge">${sc.number===1?'INICIO':sc.number===scenes.length?'CIERRE':'CONTINÚA'}</span><span class="scene-collapse-mark">＋</span></div><div class="scene-body"><p class="scene-desc">${esc(sc.action)}</p><div class="scene-meta"><span class="chip">${esc(sc.style)}</span><span class="chip">${esc(sc.format)}</span><span class="chip">8 segundos</span><span class="chip">${esc(sc.theme)}</span></div><div class="field character-assign-field"><label>Personajes de biblioteca <span class="hint">selección múltiple</span></label>
+<div class="assign-picker" data-assign-picker="${sc.id}">
+  <details class="assign-details">
+    <summary><span data-assign-summary="${sc.id}">${(sc.characterIds||[]).filter(id=>characters.some(c=>c.id===id)).length} personajes seleccionados</span><span class="assign-chevron">▾</span></summary>
+    <div class="assign-options" role="group" aria-label="Seleccionar personajes">
+      ${characters.length?characters.map(c=>`<label class="assign-option"><input type="checkbox" data-assign-char="${sc.id}" value="${esc(c.id)}" ${(sc.characterIds||[]).includes(c.id)?'checked':''}><span><strong>${esc(c.name)}</strong><small>${esc(c.role||'Personaje')}</small></span></label>`).join(''):'<p class="assign-empty">La biblioteca está vacía. Abre «02 / Biblioteca de personajes», crea una ficha y pulsa «Guardar personaje».</p>'}
+    </div>
+  </details>
+</div></div><div class="prompt-label"><span>Prompt de vídeo · editable</span><button class="btn small" data-copy="${sc.id}">▣ Copiar</button></div><div class="prompt" id="prompt-${sc.id}" contenteditable="true" spellcheck="false" aria-label="Prompt editable del clip ${sc.number}">${esc(sc.prompt)}</div><div class="scene-actions"><button class="btn small" data-copy-dialogue="${sc.id}">Copiar sonido</button><button class="btn small" data-copy-end="${sc.id}">Copiar estado final</button><button class="btn small" data-download="${sc.id}">↓ Descargar clip</button></div><details class="details"><summary>Ver continuidad y detalles</summary><div class="detail-grid"><div class="detail-box"><strong>Estado heredado</strong><p>${esc(sc.previousState)}</p></div><div class="detail-box"><strong>Estado final / enlace</strong><p>${esc(sc.endState)}</p></div><div class="detail-box"><strong>Sonido</strong><p>${esc(sc.dialogue)}</p></div><div class="detail-box"><strong>Cámara</strong><p>${esc(sc.camera)}</p></div></div></details></div></article>`).join(''):'<div class="empty">Escribe una idea y pulsa «Generar / actualizar historia» para crear los clips.</div>';
+}
+function generate(){const s=readSettings();if(!s.idea){toast('Escribe una idea para tu historia.');$('idea').focus();return;}syncPrompts();scenes=buildScenes(s);render();toast(`Historia actualizada: ${scenes.length} clips · ${scenes.length*8} segundos.`);}
+async function copyText(text){try{await navigator.clipboard.writeText(text);toast('Copiado al portapapeles.');}catch(e){const a=document.createElement('textarea');a.value=text;a.style.position='fixed';a.style.opacity='0';document.body.append(a);a.select();let ok=false;try{ok=document.execCommand('copy');}catch(_){}a.remove();toast(ok?'Copiado al portapapeles.':'No se pudo copiar. Selecciona el texto y copia manualmente.');}}
+function download(name,content,type='text/plain;charset=utf-8'){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name.replace(/[\\/:*?"<>|]/g,'-');document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);}
+function allText(){syncPrompts();const s=readSettings();return `VIDEOPROMPT STUDIO PRO V2\nPROYECTO: ${s.projectName}\nIDEA: ${s.idea}\nCLIPS: ${scenes.length} · DURACIÓN: ${scenes.length*8} segundos\n\nBIBLIOTECA DE PERSONAJES:\n${characters.map(characterDescription).join('\n')}\n\n`+scenes.map(sc=>`================================\nCLIP ${sc.number}: ${sc.title} (${sc.start}-${sc.end}s)\n================================\n${sc.prompt}\n`).join('\n');}
+function getProjects(){const p=safeRead(STORE,[]);return Array.isArray(p)?p:[];}
+function saveProject(){syncPrompts();const s=readSettings();const project={id:Date.now(),name:s.projectName,updatedAt:new Date().toISOString(),settings:s,scenes,characters,activeFeatures};const list=getProjects();const idx=list.findIndex(p=>p.name===project.name);if(idx>=0){project.id=list[idx].id;list[idx]=project;}else list.unshift(project);try{localStorage.setItem(STORE,JSON.stringify(list.slice(0,40)));toast('Proyecto guardado en este navegador.');}catch(e){toast('No se pudo guardar: almacenamiento lleno o bloqueado. Exporta el proyecto JSON.');}}
+function openSaved(){const list=getProjects();$('savedList').innerHTML='';if(!list.length)$('savedList').innerHTML='<div class="empty">Todavía no hay proyectos guardados.</div>';list.forEach(p=>{const row=document.createElement('div');row.className='saved-item';const span=document.createElement('span');span.textContent=`${p.name||'Sin título'} · ${p.updatedAt?new Date(p.updatedAt).toLocaleString('es-ES'):'sin fecha'}`;const actions=document.createElement('div');actions.className='toolbar';const load=document.createElement('button');load.className='btn small';load.textContent='Abrir';load.onclick=()=>{loadSettings(p.settings||{});if(Array.isArray(p.characters))characters=p.characters;if(Array.isArray(p.activeFeatures))activeFeatures=p.activeFeatures;scenes=Array.isArray(p.scenes)?p.scenes:[];saveCharacters();saveFeatures();renderCharacters();renderFeatures();render();$('savedModal').classList.remove('show');toast('Proyecto cargado.');};const del=document.createElement('button');del.className='btn small danger';del.textContent='Borrar';del.onclick=()=>{if(confirm(`¿Borrar el proyecto «${p.name}»?`)){localStorage.setItem(STORE,JSON.stringify(getProjects().filter(x=>x.id!==p.id)));openSaved();}};actions.append(load,del);row.append(span,actions);$('savedList').append(row);});$('savedModal').classList.add('show');}
+function readChar(){return{id:editingCharacterId||`char-${Date.now()}-${Math.random().toString(36).slice(2,7)}`,name:$('charName').value.trim(),role:$('charRole').value.trim(),age:$('charAge').value.trim(),build:$('charBuild').value.trim(),face:$('charFace').value.trim(),hair:$('charHair').value.trim(),eyes:$('charEyes').value.trim(),clothes:$('charClothes').value.trim(),personality:$('charPersonality').value.trim(),notes:$('charNotes').value.trim()};}
+function clearChar(){editingCharacterId=null;['charName','charRole','charAge','charBuild','charFace','charHair','charEyes','charClothes','charPersonality','charNotes'].forEach(id=>$(id).value='');$('addCharacterBtn').textContent='＋ Guardar personaje';}
+function saveChar(){const c=readChar();if(!c.name){toast('Escribe un nombre para el personaje.');$('charName').focus();return;}const idx=characters.findIndex(x=>x.id===c.id);if(idx>=0)characters[idx]=c;else characters.push(c);saveCharacters();clearChar();renderCharacters();renderGlobalCharacterPicker(readSettings().selectedCharacterIds||[]);toast('Ficha guardada. Ya puedes seleccionarla en «03 / Configurar historia».');}
+function updateCharactersInPrompt(sc){const selected=(sc.characterIds||[]).map(id=>characters.find(c=>c.id===id)).filter(Boolean);const block='PERSONAJES DE LA BIBLIOTECA:\n'+(selected.length?selected.map(c=>'- '+characterDescription(c)).join('\n'):'- No se ha asignado ningún personaje de biblioteca; seguir la descripción general.');const marker='PERSONAJES DE LA BIBLIOTECA:';if(sc.prompt.includes(marker)){sc.prompt=sc.prompt.replace(/PERSONAJES DE LA BIBLIOTECA:[\s\S]*?(?=\n\nCONTINUIDAD:|$)/,block);}else{sc.prompt=sc.prompt.replace('\n\nCONTINUIDAD:','\n\n'+block+'\n\nCONTINUIDAD:');}}
+function importCharacters(file){const reader=new FileReader();reader.onload=()=>{try{const data=JSON.parse(reader.result);if(!Array.isArray(data))throw new Error('El JSON debe contener una lista de personajes.');const valid=data.filter(c=>c&&typeof c.name==='string'&&c.name.trim()).map((c,i)=>({...c,id:typeof c.id==='string'&&c.id?c.id:`import-${Date.now()}-${i}`}));if(!valid.length)throw new Error('No se encontraron personajes válidos.');const map=new Map(characters.map(c=>[c.id,c]));valid.forEach(c=>map.set(c.id,c));characters=[...map.values()];saveCharacters();renderCharacters();renderGlobalCharacterPicker(readSettings().selectedCharacterIds||[]);toast(`Importados ${valid.length} personajes.`);}catch(e){toast('Error al importar: '+e.message);}};reader.readAsText(file);}
+$('generateBtn').addEventListener('click',generate);
+$('resetBtn').addEventListener('click',()=>{loadSettings(defaults);updateSoundSummary();scenes=[];render();toast('Formulario restablecido. Pulsa generar para crear una historia.');});
+$('saveBtn').addEventListener('click',saveProject);$('savedBtn').addEventListener('click',openSaved);
+$('closeSaved').addEventListener('click',()=>$('savedModal').classList.remove('show'));
+$('savedModal').addEventListener('click',e=>{if(e.target===$('savedModal'))$('savedModal').classList.remove('show');});
+$('copyAllBtn').addEventListener('click',()=>copyText(allText()));$('exportAllBtn').addEventListener('click',()=>download((readSettings().projectName||'historia')+'.txt',allText()));$('txtBtn').addEventListener('click',()=>download((readSettings().projectName||'historia')+'.txt',allText()));
+$('jsonBtn').addEventListener('click',()=>{syncPrompts();download((readSettings().projectName||'historia')+'.json',JSON.stringify({version:2,settings:readSettings(),scenes,characters,activeFeatures},null,2),'application/json;charset=utf-8');});
+$('sceneList').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const sc=scenes.find(x=>x.id===b.dataset.copy||x.id===b.dataset.copyDialogue||x.id===b.dataset.copyEnd||x.id===b.dataset.download);if(!sc)return;syncPrompts();if(b.dataset.copy)copyText(sc.prompt);if(b.dataset.copyDialogue)copyText(sc.dialogue);if(b.dataset.copyEnd)copyText(sc.endState);if(b.dataset.download)download(`clip-${String(sc.number).padStart(2,'0')}-${sc.title}.txt`,`${sc.title}\nDuración: 8 segundos\n\n${sc.prompt}`);});
+$('sceneList').addEventListener('input',e=>{const el=e.target.closest('.prompt[contenteditable="true"]');if(!el)return;const sc=scenes.find(x=>'prompt-'+x.id===el.id);if(sc)sc.prompt=el.innerText;});
+$('sceneList').addEventListener('change',e=>{
+ const cb=e.target.closest('input[data-assign-char]');if(!cb)return;
+ const sc=scenes.find(x=>x.id===cb.dataset.assignChar);if(!sc)return;
+ const picker=cb.closest('[data-assign-picker]');
+ sc.characterIds=Array.from(picker.querySelectorAll('input[data-assign-char]:checked')).map(el=>el.value);
+ updateCharactersInPrompt(sc);
+ const promptEl=$('prompt-'+sc.id);if(promptEl)promptEl.textContent=sc.prompt;
+ const summary=picker.querySelector('[data-assign-summary]');
+ if(summary)summary.textContent=`${sc.characterIds.length} personaje${sc.characterIds.length===1?'':'s'} seleccionado${sc.characterIds.length===1?'':'s'}`;
+ toast('Selección actualizada en el prompt.');
+});
+$('addCharacterBtn').addEventListener('click',saveChar);$('clearCharacterFormBtn').addEventListener('click',clearChar);
+$('characterList').addEventListener('click',e=>{const edit=e.target.closest('[data-char-edit]'),del=e.target.closest('[data-char-delete]');if(edit){const c=characters.find(x=>x.id===edit.dataset.charEdit);if(!c)return;editingCharacterId=c.id;const map={charName:'name',charRole:'role',charAge:'age',charBuild:'build',charFace:'face',charHair:'hair',charEyes:'eyes',charClothes:'clothes',charPersonality:'personality',charNotes:'notes'};Object.entries(map).forEach(([id,k])=>$(id).value=c[k]||'');$('addCharacterBtn').textContent='Guardar cambios';$('charName').focus();}else if(del){const c=characters.find(x=>x.id===del.dataset.charDelete);if(!c||!confirm(`¿Borrar el personaje «${c.name}»?`))return;characters=characters.filter(x=>x.id!==c.id);scenes.forEach(sc=>{sc.characterIds=(sc.characterIds||[]).filter(id=>id!==c.id);});saveCharacters();renderCharacters();renderGlobalCharacterPicker(readSettings().selectedCharacterIds||[]);render();toast('Personaje borrado.');}});
+$('featureGrid').addEventListener('change',e=>{const cb=e.target.closest('[data-feature]');if(!cb)return;const n=Number(cb.dataset.feature);activeFeatures=cb.checked?[...new Set([...activeFeatures,n])]:activeFeatures.filter(x=>x!==n);saveFeatures();$('featureCount').textContent=`${activeFeatures.length} de ${featureNames.length} activadas`;toast('Control guardado. Regenera para aplicarlo a todos los clips.');});
+$('selectAllFeaturesBtn').addEventListener('click',()=>{activeFeatures=featureNames.map((_,i)=>i);saveFeatures();renderFeatures();toast('Controles activados.');});
+$('clearFeaturesBtn').addEventListener('click',()=>{activeFeatures=[];saveFeatures();renderFeatures();toast('Controles desactivados.');});
+$('exportCharactersBtn').addEventListener('click',()=>download('personajes-videoprompt.json',JSON.stringify(characters,null,2),'application/json;charset=utf-8'));
+$('importCharactersFile').addEventListener('change',e=>{const f=e.target.files&&e.target.files[0];if(f)importCharacters(f);e.target.value='';});
+
+// Paneles plegables: conservan la interfaz compacta y accesible por teclado.
+function togglePanel(panel){
+ const collapsed=panel.classList.toggle('is-collapsed');
+ const head=panel.querySelector('.panel-head');
+ if(head)head.setAttribute('aria-expanded',String(!collapsed));
+ const mark=panel.querySelector('.collapse-mark');
+ if(mark)mark.textContent=collapsed?'+':'−';
+}
+document.querySelectorAll('.panel-collapsible .panel-head').forEach(head=>{
+ head.addEventListener('click',()=>togglePanel(head.closest('.panel-collapsible')));
+ head.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();togglePanel(head.closest('.panel-collapsible'));}});
+});
+function toggleScene(id, force){
+ const card=document.querySelector(`[data-scene-card="${CSS.escape(id)}"]`);
+ if(!card)return;
+ const collapsed=typeof force==='boolean'?!force:!card.classList.contains('is-collapsed');
+ card.classList.toggle('is-collapsed',collapsed);
+ const head=card.querySelector('[data-scene-toggle]');
+ if(head)head.setAttribute('aria-expanded',String(!collapsed));
+ const mark=card.querySelector('.scene-collapse-mark');
+ if(mark)mark.textContent=collapsed?'+':'−';
+}
+$('sceneList').addEventListener('click',e=>{
+ const head=e.target.closest('[data-scene-toggle]');
+ if(!head)return;
+ if(e.target.closest('button,select,input,textarea,a'))return;
+ toggleScene(head.dataset.sceneToggle);
+});
+$('sceneList').addEventListener('keydown',e=>{
+ const head=e.target.closest('[data-scene-toggle]');
+ if(head&&(e.key==='Enter'||e.key===' ')){e.preventDefault();toggleScene(head.dataset.sceneToggle);}
+});
+$('expandScenesBtn').addEventListener('click',()=>{scenes.forEach(sc=>toggleScene(sc.id,true));});
+$('collapseScenesBtn').addEventListener('click',()=>{scenes.forEach(sc=>toggleScene(sc.id,false));});
+characters=safeRead(CHAR_STORE,[]);if(!Array.isArray(characters))characters=[];activeFeatures=safeRead(FEATURE_STORE,[]);if(!Array.isArray(activeFeatures))activeFeatures=[];activeFeatures=activeFeatures.filter(i=>Number.isInteger(i)&&i>=0&&i<featureNames.length);
+loadSettings(defaults);renderCharacters();renderFeatures();generate();
+})();
+</script>
+</body>
+</html>
